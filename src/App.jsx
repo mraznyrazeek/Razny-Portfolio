@@ -1,33 +1,90 @@
+import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       {/* Navbar */}
-      <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-slate-950/80 backdrop-blur">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#home" className="text-xl font-bold tracking-tight text-white">
-            Razny<span className="text-cyan-400">.</span>
-          </a>
+<header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-slate-950/80 backdrop-blur">
+  <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="#home" className="text-xl font-bold tracking-tight text-white">
+      Razny<span className="text-cyan-400">.</span>
+    </a>
 
-          <div className="hidden items-center gap-6 md:flex">
-            <a href="#about" className="text-sm text-slate-300 transition hover:text-cyan-400">About</a>
-            <a href="#skills" className="text-sm text-slate-300 transition hover:text-cyan-400">Skills</a>
-            <a href="#experience" className="text-sm text-slate-300 transition hover:text-cyan-400">Experience</a>
-            <a href="#projects" className="text-sm text-slate-300 transition hover:text-cyan-400">Projects</a>
-            <a href="#education" className="text-sm text-slate-300 transition hover:text-cyan-400">Education</a>
-            <a href="#research" className="text-sm text-slate-300 transition hover:text-cyan-400">Research</a>
-            <a href="#contact" className="text-sm text-slate-300 transition hover:text-cyan-400">Contact</a>
-          </div>
+    <div className="hidden items-center gap-6 lg:flex">
+      {[
+        ['About', '#about'],
+        ['Skills', '#skills'],
+        ['Experience', '#experience'],
+        ['Projects', '#projects'],
+        ['Research', '#research'],
+        ['Education', '#education'],
+        ['Contact', '#contact'],
+      ].map(([label, href]) => (
+        <a
+          key={label}
+          href={href}
+          className="text-sm text-slate-300 transition hover:text-cyan-400"
+        >
+          {label}
+        </a>
+      ))}
+    </div>
 
+    <div className="flex items-center gap-3">
+      <a
+        href="mailto:mraznyrazeek@gmail.com"
+        className="hidden rounded-full border border-cyan-400/50 px-4 py-2 text-sm font-semibold text-cyan-300 transition hover:bg-cyan-400 hover:text-slate-950 sm:inline-flex"
+      >
+        Contact
+      </a>
+
+      <button
+        type="button"
+        onClick={() => setIsMenuOpen((current) => !current)}
+        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-slate-200 transition hover:border-cyan-400 hover:text-cyan-300 lg:hidden"
+        aria-label="Toggle navigation menu"
+      >
+        {isMenuOpen ? '✕' : '☰'}
+      </button>
+    </div>
+  </nav>
+
+  {isMenuOpen && (
+    <div className="border-t border-white/10 bg-slate-950 px-6 py-4 lg:hidden">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4">
+        {[
+          ['About', '#about'],
+          ['Skills', '#skills'],
+          ['Experience', '#experience'],
+          ['Projects', '#projects'],
+          ['Research', '#research'],
+          ['Education', '#education'],
+          ['Contact', '#contact'],
+        ].map(([label, href]) => (
           <a
-            href="mailto:mraznyrazeek@gmail.com"
-            className="rounded-full border border-cyan-400/50 px-4 py-2 text-sm font-semibold text-cyan-300 transition hover:bg-cyan-400 hover:text-slate-950"
+            key={label}
+            href={href}
+            onClick={() => setIsMenuOpen(false)}
+            className="rounded-xl px-4 py-3 text-slate-300 transition hover:bg-white/5 hover:text-cyan-400"
           >
-            Contact
+            {label}
           </a>
-        </nav>
-      </header>
+        ))}
+
+        <a
+          href="mailto:mraznyrazeek@gmail.com"
+          onClick={() => setIsMenuOpen(false)}
+          className="rounded-xl bg-cyan-400 px-4 py-3 text-center font-semibold text-slate-950 transition hover:bg-cyan-300"
+        >
+          Email Me
+        </a>
+      </div>
+    </div>
+  )}
+</header>
 
       <main>
         {/* Hero */}
