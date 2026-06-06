@@ -560,6 +560,108 @@ function App() {
   </div>
 </section>
 
+{/* Research */}
+<section id="research" className="px-6 py-24">
+  <div className="mx-auto max-w-6xl">
+    <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
+      Research
+    </p>
+
+    <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
+      Research Direction
+    </h2>
+
+    <p className="mb-12 max-w-4xl text-lg leading-8 text-slate-300">
+      My research interests focus on the safety, reliability, and scalability of
+      modern AI systems, particularly Large Language Models and NLP-based
+      applications. I am preparing for PhD opportunities where I can contribute
+      to research on trustworthy, secure, explainable, and responsible AI systems.
+    </p>
+
+    <div className="grid gap-6 lg:grid-cols-3">
+      {[
+        {
+          title: 'Large Language Models & NLP',
+          description:
+            'Exploring how language models understand, generate, evaluate, and reason over natural language, with a focus on reliable NLP applications and model behaviour.',
+          topics: [
+            'Large Language Models',
+            'Natural Language Processing',
+            'BERT',
+            'Sentiment Analysis',
+            'Transformer Models',
+            'Text Classification',
+          ],
+        },
+        {
+          title: 'Trustworthy AI & AI Safety',
+          description:
+            'Investigating how AI systems can be made safer, more reliable, explainable, and dependable when deployed in real-world environments.',
+          topics: [
+            'Trustworthy AI',
+            'AI Safety',
+            'Explainability',
+            'Responsible AI',
+            'Model Reliability',
+            'Human-Centred AI',
+          ],
+        },
+        {
+          title: 'AI Security & Robustness',
+          description:
+            'Studying risks around adversarial attacks, prompt-based vulnerabilities, jailbreaking, and security challenges in LLM-powered systems.',
+          topics: [
+            'AI Security',
+            'Adversarial Robustness',
+            'Prompt Attacks',
+            'Jailbreaking',
+            'Safety Layers',
+            'Secure AI Systems',
+          ],
+        },
+      ].map((area) => (
+        <div
+          key={area.title}
+          className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.06]"
+        >
+          <h3 className="mb-4 text-xl font-bold text-white">
+            {area.title}
+          </h3>
+
+          <p className="mb-6 leading-7 text-slate-300">
+            {area.description}
+          </p>
+
+          <div className="flex flex-wrap gap-2">
+            {area.topics.map((topic) => (
+              <span
+                key={topic}
+                className="rounded-full border border-white/10 bg-slate-950/70 px-3 py-1 text-sm text-slate-300"
+              >
+                {topic}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div className="mt-10 rounded-3xl border border-cyan-400/20 bg-cyan-400/10 p-6 md:p-8">
+      <h3 className="mb-4 text-2xl font-bold text-white">
+        PhD Research Goal
+      </h3>
+
+      <p className="max-w-4xl text-lg leading-8 text-slate-300">
+        My long-term goal is to contribute to research that makes AI systems more
+        reliable, secure, explainable, and trustworthy, especially in the context
+        of Large Language Models and intelligent software systems. I am particularly
+        interested in how software engineering principles can improve the design,
+        testing, monitoring, governance, and responsible deployment of AI systems.
+      </p>
+    </div>
+  </div>
+</section>
+
         {/* Contact */}
         <section id="contact" className="px-6 py-24">
           <div className="mx-auto max-w-6xl text-center">
