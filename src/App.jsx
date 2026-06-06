@@ -1,16 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import profileImage from "./assets/profile.jpg";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
   Brain,
+  Cloud,
+  CloudRain,
   Code2,
   Database,
   Download,
   ExternalLink,
   Menu,
+  Moon,
   ShieldCheck,
+  Snowflake,
   Sparkles,
+  Sun,
+  CloudSun,
   X,
 } from "lucide-react";
 import "./App.css";
@@ -58,87 +64,250 @@ const heroStats = [
 
 const orbitGroups = [
   {
-    name: 'Engineering',
+    name: "Engineering",
     radius: 185,
     duration: 26,
     reverse: false,
-    ringClass: 'border-cyan-400/25',
+    ringClass: "border-cyan-400/25",
     items: [
       {
-        label: '.NET Core',
+        label: ".NET Core",
         angle: 20,
         className:
-          'border-cyan-400/30 bg-cyan-500/10 text-cyan-200 shadow-cyan-950/40',
+          "border-cyan-400/30 bg-cyan-500/10 text-cyan-200 shadow-cyan-950/40",
       },
       {
-        label: 'React',
+        label: "React",
         angle: 135,
         className:
-          'border-cyan-400/30 bg-cyan-500/10 text-cyan-200 shadow-cyan-950/40',
+          "border-cyan-400/30 bg-cyan-500/10 text-cyan-200 shadow-cyan-950/40",
       },
       {
-        label: 'REST APIs',
+        label: "REST APIs",
         angle: 255,
         className:
-          'border-cyan-400/30 bg-cyan-500/10 text-cyan-200 shadow-cyan-950/40',
+          "border-cyan-400/30 bg-cyan-500/10 text-cyan-200 shadow-cyan-950/40",
       },
     ],
   },
   {
-    name: 'Data',
+    name: "Data",
     radius: 135,
     duration: 20,
     reverse: true,
-    ringClass: 'border-blue-400/20',
+    ringClass: "border-blue-400/20",
     items: [
       {
-        label: 'SQL Server',
+        label: "SQL Server",
         angle: 0,
         className:
-          'border-blue-400/30 bg-blue-500/10 text-blue-200 shadow-blue-950/40',
+          "border-blue-400/30 bg-blue-500/10 text-blue-200 shadow-blue-950/40",
       },
       {
-        label: 'ETL',
+        label: "ETL",
         angle: 120,
         className:
-          'border-blue-400/30 bg-blue-500/10 text-blue-200 shadow-blue-950/40',
+          "border-blue-400/30 bg-blue-500/10 text-blue-200 shadow-blue-950/40",
       },
       {
-        label: 'SSRS',
+        label: "SSRS",
         angle: 240,
         className:
-          'border-blue-400/30 bg-blue-500/10 text-blue-200 shadow-blue-950/40',
+          "border-blue-400/30 bg-blue-500/10 text-blue-200 shadow-blue-950/40",
       },
     ],
   },
   {
-    name: 'AI',
+    name: "AI",
     radius: 88,
     duration: 15,
     reverse: false,
-    ringClass: 'border-violet-400/20',
+    ringClass: "border-violet-400/20",
     items: [
       {
-        label: 'NLP',
+        label: "NLP",
         angle: 40,
         className:
-          'border-violet-400/30 bg-violet-500/10 text-violet-200 shadow-violet-950/40',
+          "border-violet-400/30 bg-violet-500/10 text-violet-200 shadow-violet-950/40",
       },
       {
-        label: 'LLMs',
+        label: "LLMs",
         angle: 180,
         className:
-          'border-violet-400/30 bg-violet-500/10 text-violet-200 shadow-violet-950/40',
+          "border-violet-400/30 bg-violet-500/10 text-violet-200 shadow-violet-950/40",
       },
       {
-        label: 'AI Safety',
+        label: "AI Safety",
         angle: 300,
         className:
-          'border-violet-400/30 bg-violet-500/10 text-violet-200 shadow-violet-950/40',
+          "border-violet-400/30 bg-violet-500/10 text-violet-200 shadow-violet-950/40",
       },
     ],
   },
-]
+];
+
+function WeatherGreeting() {
+  const [weather, setWeather] = useState(null);
+  const [status, setStatus] = useState("Detecting");
+
+  const hour = new Date().getHours();
+
+  const greeting =
+    hour < 12
+      ? "Good Morning"
+      : hour < 17
+        ? "Good Afternoon"
+        : hour < 21
+          ? "Good Evening"
+          : "Good Night";
+
+  const fetchWeather = async (latitude, longitude, place = "Auto detected") => {
+    try {
+      const response = await fetch(
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code,is_day`,
+      );
+
+      const data = await response.json();
+
+      setWeather({
+        place,
+        temperature: Math.round(data.current.temperature_2m),
+        weatherCode: data.current.weather_code,
+        isDay: data.current.is_day === 1,
+      });
+    } catch {
+      setStatus("Weather unavailable");
+    }
+  };
+
+  const fetchApproxLocationWeather = async () => {
+    try {
+      const response = await fetch("https://ipapi.co/json/");
+      const data = await response.json();
+
+      if (data.latitude && data.longitude) {
+        fetchWeather(
+          data.latitude,
+          data.longitude,
+          data.city || "Auto detected",
+        );
+      } else {
+        setStatus("Weather unavailable");
+      }
+    } catch {
+      setStatus("Weather unavailable");
+    }
+  };
+
+  useEffect(() => {
+    if (!navigator.geolocation) {
+      fetchApproxLocationWeather();
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        fetchWeather(latitude, longitude, "Auto detected");
+      },
+      () => {
+        fetchApproxLocationWeather();
+      },
+      {
+        enableHighAccuracy: false,
+        timeout: 7000,
+        maximumAge: 1000 * 60 * 15,
+      },
+    );
+  }, []);
+
+  const getWeatherLabel = (code) => {
+    if ([0, 1].includes(code)) return "Clear Sky";
+    if ([2].includes(code)) return "Partly Cloudy";
+    if ([3].includes(code)) return "Cloudy";
+    if ([45, 48].includes(code)) return "Foggy";
+    if ([51, 53, 55].includes(code)) return "Drizzle";
+    if ([61, 63, 65, 80, 81, 82].includes(code)) return "Rainy";
+    if ([71, 73, 75, 77, 85, 86].includes(code)) return "Snowy";
+    if ([95, 96, 99].includes(code)) return "Stormy";
+    return "Live Weather";
+  };
+
+  const getWeatherIcon = () => {
+    if (!weather) {
+      return hour >= 6 && hour < 18 ? <Sun size={18} /> : <Moon size={18} />;
+    }
+
+    const code = weather.weatherCode;
+
+    if ([0, 1].includes(code)) {
+      return weather.isDay ? <Sun size={18} /> : <Moon size={18} />;
+    }
+
+    if ([2].includes(code)) return <CloudSun size={18} />;
+    if ([3, 45, 48].includes(code)) return <Cloud size={18} />;
+
+    if ([51, 53, 55, 61, 63, 65, 80, 81, 82, 95, 96, 99].includes(code)) {
+      return <CloudRain size={18} />;
+    }
+
+    if ([71, 73, 75, 77, 85, 86].includes(code)) {
+      return <Snowflake size={18} />;
+    }
+
+    return <CloudSun size={18} />;
+  };
+
+  const weatherText = weather
+    ? `${weather.temperature}°C · ${getWeatherLabel(weather.weatherCode)}`
+    : status;
+
+  const iconTone =
+    weather && [0, 1].includes(weather.weatherCode)
+      ? "border-amber-300/25 bg-amber-400/10 text-amber-300"
+      : weather &&
+          [51, 53, 55, 61, 63, 65, 80, 81, 82].includes(weather.weatherCode)
+        ? "border-blue-300/25 bg-blue-400/10 text-blue-300"
+        : weather && [71, 73, 75, 77, 85, 86].includes(weather.weatherCode)
+          ? "border-sky-200/25 bg-sky-300/10 text-sky-200"
+          : "border-cyan-300/25 bg-cyan-400/10 text-cyan-300";
+
+  const weatherTone =
+    weather && [0, 1].includes(weather.weatherCode)
+      ? "text-amber-200"
+      : weather &&
+          [51, 53, 55, 61, 63, 65, 80, 81, 82].includes(weather.weatherCode)
+        ? "text-blue-200"
+        : weather && [71, 73, 75, 77, 85, 86].includes(weather.weatherCode)
+          ? "text-sky-200"
+          : "text-cyan-200";
+
+  return (
+  <div className="relative inline-flex">
+    <div className="relative overflow-hidden rounded-full border border-white/10 bg-slate-950/80 p-[1px] shadow-[0_10px_30px_rgba(6,182,212,0.12)] backdrop-blur-xl">
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/25 via-blue-500/15 to-violet-500/20" />
+
+      <div className="relative flex items-center gap-3 rounded-full bg-slate-950/95 px-5 py-3">
+        <div
+          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border shadow-inner shadow-slate-950/40 ${iconTone}`}
+        >
+          {getWeatherIcon()}
+        </div>
+
+        <div className="flex min-w-[140px] flex-col leading-none">
+          <span className="text-[0.95rem] font-bold tracking-tight text-white">
+            {greeting}
+          </span>
+
+          <span className={`mt-1 text-xs font-semibold ${weatherTone}`}>
+            {weatherText}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+)
+}
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -148,11 +317,8 @@ function App() {
       {/* Navbar */}
       <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-slate-950/80 backdrop-blur">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a
-            href="#home"
-            className="text-xl font-bold tracking-tight text-white"
-          >
-            Razny<span className="text-cyan-400">.</span>
+          <a href="#home" aria-label="Go to home">
+            <WeatherGreeting />
           </a>
 
           <div className="hidden items-center gap-6 lg:flex">
@@ -268,7 +434,7 @@ function App() {
 
               <motion.h1
                 variants={fadeUp}
-                className="max-w-4xl text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-7xl"
+                className="max-w-4xl text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
               >
                 Building scalable software,
                 <span className="block text-gradient">
@@ -352,7 +518,7 @@ function App() {
             >
               <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-cyan-400/30 via-blue-500/20 to-violet-500/30 blur-2xl" />
 
-              <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 shadow-2xl shadow-cyan-950/40 backdrop-blur-xl">
+              <div className="relative overflow-visible rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 shadow-2xl shadow-cyan-950/40 backdrop-blur-xl">
                 <div className="mb-6 flex items-center justify-between">
                   <div>
                     <p className="text-sm text-slate-400">
@@ -369,80 +535,82 @@ function App() {
                 </div>
 
                 <div className="relative mx-auto my-10 flex h-[460px] w-[460px] items-center justify-center">
-  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-400/10 via-blue-500/10 to-violet-500/10 blur-3xl" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-400/10 via-blue-500/10 to-violet-500/10 blur-3xl" />
 
-  {/* engineering ring */}
-  <div className="absolute inset-[22px] rounded-full border border-dashed border-cyan-400/20" />
+                  {/* engineering ring */}
+                  <div className="absolute inset-[22px] rounded-full border border-dashed border-cyan-400/20" />
 
-  {/* data ring */}
-  <div className="absolute inset-[72px] rounded-full border border-dashed border-blue-400/20" />
+                  {/* data ring */}
+                  <div className="absolute inset-[72px] rounded-full border border-dashed border-blue-400/20" />
 
-  {/* ai ring */}
-  <div className="absolute inset-[120px] rounded-full border border-dashed border-violet-400/20" />
+                  {/* ai ring */}
+                  <div className="absolute inset-[120px] rounded-full border border-dashed border-violet-400/20" />
 
-  {/* center glow */}
-  <div className="absolute h-[190px] w-[190px] rounded-full bg-cyan-400/10 blur-2xl" />
+                  {/* center glow */}
+                  <div className="absolute h-[190px] w-[190px] rounded-full bg-cyan-400/10 blur-2xl" />
 
-  {/* profile center */}
-  <div className="relative z-30 flex flex-col items-center">
-    <div className="rounded-full bg-gradient-to-br from-cyan-400/30 via-blue-500/20 to-violet-500/30 p-1.5 shadow-2xl shadow-cyan-500/20">
-      <div className="h-34 w-34 overflow-hidden rounded-full border-2 border-white/10 bg-slate-900">
-        <img
-          src={profileImage}
-          alt="Razny Razeek"
-          className="h-full w-full object-cover object-top"
-        />
-      </div>
-    </div>
+                  {/* profile center */}
+                  <div className="relative z-30 flex flex-col items-center">
+                    <div className="rounded-full bg-gradient-to-br from-cyan-400/30 via-blue-500/20 to-violet-500/30 p-1.5 shadow-2xl shadow-cyan-500/20">
+                      <div className="h-34 w-34 overflow-hidden rounded-full border-2 border-white/10 bg-slate-900">
+                        <img
+                          src={profileImage}
+                          alt="Razny Razeek"
+                          className="h-full w-full object-cover object-top"
+                        />
+                      </div>
+                    </div>
 
-    <p className="mt-4 text-xl font-bold text-white">Razny Razeek</p>
-    <p className="text-sm text-slate-400">
-      Software Engineer · Data Science · AI
-    </p>
-  </div>
+                    <p className="mt-4 text-xl font-bold text-white">
+                      Razny Razeek
+                    </p>
+                    <p className="text-sm text-slate-400">
+                      Software Engineer · Data Science · AI
+                    </p>
+                  </div>
 
-  {/* grouped orbit rings */}
-  {orbitGroups.map((group) => (
-    <motion.div
-      key={group.name}
-      animate={{ rotate: group.reverse ? -360 : 360 }}
-      transition={{
-        duration: group.duration,
-        repeat: Infinity,
-        ease: 'linear',
-      }}
-      className="absolute inset-0 z-20"
-    >
-      {group.items.map((item) => {
-        const radians = (item.angle * Math.PI) / 180
-        const x = Math.cos(radians) * group.radius
-        const y = Math.sin(radians) * group.radius
+                  {/* grouped orbit rings */}
+                  {orbitGroups.map((group) => (
+                    <motion.div
+                      key={group.name}
+                      animate={{ rotate: group.reverse ? -360 : 360 }}
+                      transition={{
+                        duration: group.duration,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                      className="absolute inset-0 z-20"
+                    >
+                      {group.items.map((item) => {
+                        const radians = (item.angle * Math.PI) / 180;
+                        const x = Math.cos(radians) * group.radius;
+                        const y = Math.sin(radians) * group.radius;
 
-        return (
-          <div
-            key={item.label}
-            className="absolute left-1/2 top-1/2"
-            style={{
-              transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-            }}
-          >
-            <motion.div
-              animate={{ rotate: group.reverse ? 360 : -360 }}
-              transition={{
-                duration: group.duration,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className={`whitespace-nowrap rounded-full border px-4 py-2 text-xs font-semibold shadow-lg backdrop-blur ${item.className}`}
-            >
-              {item.label}
-            </motion.div>
-          </div>
-        )
-      })}
-    </motion.div>
-  ))}
-</div>
+                        return (
+                          <div
+                            key={item.label}
+                            className="absolute left-1/2 top-1/2"
+                            style={{
+                              transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+                            }}
+                          >
+                            <motion.div
+                              animate={{ rotate: group.reverse ? 360 : -360 }}
+                              transition={{
+                                duration: group.duration,
+                                repeat: Infinity,
+                                ease: "linear",
+                              }}
+                              className={`whitespace-nowrap rounded-full border px-4 py-2 text-xs font-semibold shadow-lg backdrop-blur ${item.className}`}
+                            >
+                              {item.label}
+                            </motion.div>
+                          </div>
+                        );
+                      })}
+                    </motion.div>
+                  ))}
+                </div>
 
                 <div className="grid gap-3">
                   {[
@@ -1222,7 +1390,7 @@ function App() {
                   <p className="text-sm text-slate-400">LinkedIn</p>
                   <a
                     href="https://linkedin.com/in/raznyrazeek"
-                    target="_blank"
+                    target="_blank"å
                     rel="noreferrer"
                     className="mt-2 block break-words font-medium text-slate-200 hover:text-cyan-300"
                   >
