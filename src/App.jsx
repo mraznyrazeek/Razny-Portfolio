@@ -327,6 +327,98 @@ function App() {
   </div>
 </section>
 
+{/* Experience */}
+<section id="experience" className="px-6 py-24">
+  <div className="mx-auto max-w-6xl">
+    <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
+      Experience
+    </p>
+
+    <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
+      Professional Experience
+    </h2>
+
+    <p className="mb-12 max-w-3xl text-lg leading-8 text-slate-300">
+      Commercial software engineering experience across full-stack development,
+      REST API design, database optimisation, ETL pipelines, reporting automation,
+      cloud deployment, and production support.
+    </p>
+
+    <div className="space-y-6">
+      {[
+        {
+          role: 'Full-Stack Developer',
+          company: 'Spicehaart',
+          location: 'Colchester, United Kingdom',
+          period: 'Sept 2024 – Present',
+          highlights: [
+            'Built scalable .NET Core REST APIs, Windows Services, and microservices for business-critical platforms and third-party integrations.',
+            'Developed commercial web applications using React, Angular, and Next.js, improving responsiveness and user experience.',
+            'Optimised T-SQL queries, stored procedures, functions, and indexes, improving database performance by up to 50%.',
+            'Built SSIS ETL pipelines to process large-scale JSON, XML, and CSV data into centralised systems.',
+            'Created and automated SSRS reports for financial, marketing, operational, and commission-based reporting using SQL Server Agent.',
+            'Implemented GitHub Actions CI/CD pipelines, supported Azure deployments, and managed IIS production deployments.',
+          ],
+        },
+        {
+          role: 'Full-Stack Developer',
+          company: 'Self-Employed',
+          location: 'Bristol, United Kingdom · Remote',
+          period: 'Apr 2024 – Sept 2024',
+          highlights: [
+            'Developed RESTful APIs and secured web integrations using JWT authentication.',
+            'Built frontend features using React, Blazor, and ASP.NET Core to support business requirements.',
+            'Took ownership of existing full-stack codebases, debugging .NET Core and frontend issues.',
+            'Refactored code flows and improved maintainability using clean architecture principles.',
+            'Built and optimised MySQL queries and indexes, improving database performance by 25%.',
+            'Wrote unit and integration tests to improve system reliability.',
+          ],
+        },
+        {
+          role: 'Software Developer',
+          company: '24K Tech Solutions',
+          location: 'Sri Lanka',
+          period: 'Jul 2021 – Nov 2022',
+          highlights: [
+            'Developed and maintained applications using C#, ASP.NET Core, ASP.NET MVC, Web Forms, Razor Pages, WinForms, .NET Framework, and .NET Core.',
+            'Built responsive frontend features using Angular, JavaScript, Bootstrap, Tailwind CSS, HTML, and CSS.',
+            'Designed database schemas, queries, stored procedures, and indexes across SQL Server, MySQL, and SQLite.',
+            'Processed, transformed, and integrated XML data using XSLT and XPath within enterprise applications.',
+            'Built reusable backend modules and application components following SOLID principles.',
+            'Maintained e-commerce platforms, delivering new features, bug fixes, production-ready pages, and IIS deployments.',
+          ],
+        },
+      ].map((job) => (
+        <div
+          key={`${job.company}-${job.period}`}
+          className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-cyan-400/40 hover:bg-white/[0.06] md:p-8"
+        >
+          <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+            <div>
+              <h3 className="text-2xl font-bold text-white">{job.role}</h3>
+              <p className="mt-1 text-lg text-cyan-300">{job.company}</p>
+              <p className="mt-1 text-sm text-slate-400">{job.location}</p>
+            </div>
+
+            <span className="w-fit rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-300">
+              {job.period}
+            </span>
+          </div>
+
+          <ul className="space-y-3">
+            {job.highlights.map((item) => (
+              <li key={item} className="flex gap-3 text-slate-300">
+                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-cyan-400" />
+                <span className="leading-7">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
         {/* Contact */}
         <section id="contact" className="px-6 py-24">
           <div className="mx-auto max-w-6xl text-center">
