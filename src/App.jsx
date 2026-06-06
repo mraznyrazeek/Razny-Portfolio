@@ -419,6 +419,147 @@ function App() {
   </div>
 </section>
 
+{/* Projects */}
+<section id="projects" className="bg-slate-900/50 px-6 py-24">
+  <div className="mx-auto max-w-6xl">
+    <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
+      Projects
+    </p>
+
+    <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
+      Selected Projects
+    </h2>
+
+    <p className="mb-12 max-w-3xl text-lg leading-8 text-slate-300">
+      A selection of software engineering, data engineering, and AI/data science
+      projects demonstrating full-stack development, scalable search, reporting
+      automation, NLP, machine learning, and production-focused problem solving.
+    </p>
+
+    <div className="grid gap-6 md:grid-cols-2">
+      {[
+        {
+          title: 'Global Bitcoin Sentiment & Volatility Modelling',
+          type: 'MSc Dissertation · AI / NLP / Machine Learning',
+          description:
+            'Conducted large-scale NLP and machine learning analysis on 500K–750K Bitcoin-related records to investigate sentiment trends and their relationship with cryptocurrency volatility. Compared lexicon-based, vector-based, traditional machine learning, and transformer-based methods including BERT.',
+          tech: [
+            'Python',
+            'scikit-learn',
+            'NLTK',
+            'BERT',
+            'Pandas',
+            'NumPy',
+            'NLP',
+            'Time-Series',
+          ],
+          highlights: [
+            'Processed large-scale textual datasets from authorised sources and GDELT.',
+            'Compared SVM, Random Forest, Gradient Boosting, and BERT models.',
+            'Explored sentiment impact on Bitcoin price and volatility before and after the pandemic.',
+          ],
+        },
+        {
+          title: 'Product Search & Catalog Platform',
+          type: 'Full-Stack Search System',
+          description:
+            'Built a scalable product search and catalog platform to ingest, clean, structure, and synchronise bulk external product datasets into a relational model with Elasticsearch-powered filtering and real-time search.',
+          tech: [
+            '.NET',
+            'React',
+            'PostgreSQL',
+            'Elasticsearch',
+            'REST APIs',
+            'Data Processing',
+          ],
+          highlights: [
+            'Designed APIs for high-volume product search operations.',
+            'Implemented data cleaning and relational product modelling workflows.',
+            'Integrated Elasticsearch for fast filtering and product discovery.',
+          ],
+        },
+        {
+          title: 'LesiBuy E-Commerce Platform',
+          type: 'Full-Stack E-Commerce Application',
+          description:
+            'Developed a full-stack e-commerce platform with product management, filtering, authentication, secure REST APIs, and optimised data handling to improve scalability, performance, and user experience.',
+          tech: [
+            'ASP.NET Core',
+            'Entity Framework Core',
+            'Angular',
+            'SQL Server',
+            'REST APIs',
+            'Authentication',
+          ],
+          highlights: [
+            'Built product management and filtering features.',
+            'Implemented secure REST APIs and authentication.',
+            'Optimised data access and application performance.',
+          ],
+        },
+        {
+          title: 'Enterprise Reporting & ETL Automation',
+          type: 'Commercial Data Automation',
+          description:
+            'Designed reporting and ETL automation workflows using SSRS, SSIS, SQL Server Agent, and SQL Server optimisation techniques to reduce manual reporting workload and improve data processing efficiency.',
+          tech: [
+            'SSRS',
+            'SSIS',
+            'SQL Server',
+            'SQL Server Agent',
+            'T-SQL',
+            'ETL',
+          ],
+          highlights: [
+            'Reduced manual reporting workload by 70%.',
+            'Improved database performance by up to 50%.',
+            'Reduced data latency by 60% through automated ETL pipelines.',
+          ],
+        },
+      ].map((project) => (
+        <article
+          key={project.title}
+          className="group rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.06] md:p-8"
+        >
+          <div className="mb-4">
+            <span className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-xs font-medium text-cyan-300">
+              {project.type}
+            </span>
+          </div>
+
+          <h3 className="mb-4 text-2xl font-bold text-white group-hover:text-cyan-300">
+            {project.title}
+          </h3>
+
+          <p className="mb-6 leading-7 text-slate-300">
+            {project.description}
+          </p>
+
+          <div className="mb-6 flex flex-wrap gap-2">
+            {project.tech.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-white/10 bg-slate-950/70 px-3 py-1 text-sm text-slate-300"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+
+          <ul className="space-y-3">
+            {project.highlights.map((item) => (
+              <li key={item} className="flex gap-3 text-sm text-slate-300">
+                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-cyan-400" />
+                <span className="leading-6">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
         {/* Contact */}
         <section id="contact" className="px-6 py-24">
           <div className="mx-auto max-w-6xl text-center">
