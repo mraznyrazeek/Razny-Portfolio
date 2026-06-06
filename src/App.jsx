@@ -18,6 +18,14 @@ import {
   Sparkles,
   Sun,
   X,
+  Briefcase,
+  Building2,
+  CalendarDays,
+  MapPin,
+  ServerCog,
+  Workflow,
+  Cpu,
+  LineChart,
 } from "lucide-react";
 import "./App.css";
 
@@ -53,92 +61,92 @@ const heroStats = [
 
 const orbitGroups = [
   {
-    name: "Engineering",
-    radius: 158,
-    mobileRadius: 106,
-    duration: 24,
+    name: "AI",
+    radius: 175,
+    mobileRadius: 108,
+    duration: 22,
     reverse: false,
+    items: [
+      {
+        label: "LLMs",
+        shortLabel: "LLMs",
+        angle: 20,
+        className:
+          "border-violet-400/40 bg-violet-500/20 text-violet-100 shadow-violet-950/40",
+      },
+      {
+        label: "NLP",
+        shortLabel: "NLP",
+        angle: 145,
+        className:
+          "border-violet-400/40 bg-violet-500/20 text-violet-100 shadow-violet-950/40",
+      },
+      {
+        label: "AI Safety",
+        shortLabel: "Safety",
+        angle: 265,
+        className:
+          "border-violet-400/40 bg-violet-500/20 text-violet-100 shadow-violet-950/40",
+      },
+    ],
+  },
+  {
+    name: "Engineering",
+    radius: 130,
+    mobileRadius: 78,
+    duration: 18,
+    reverse: true,
     items: [
       {
         label: ".NET Core",
         shortLabel: ".NET",
-        angle: 20,
+        angle: 0,
         className:
-          "border-cyan-400/30 bg-cyan-500/15 text-cyan-100 shadow-cyan-950/40",
+          "border-cyan-400/40 bg-cyan-500/15 text-cyan-100 shadow-cyan-950/40",
       },
       {
         label: "React",
         shortLabel: "React",
-        angle: 145,
+        angle: 120,
         className:
-          "border-cyan-400/30 bg-cyan-500/15 text-cyan-100 shadow-cyan-950/40",
+          "border-cyan-400/40 bg-cyan-500/15 text-cyan-100 shadow-cyan-950/40",
       },
       {
         label: "REST APIs",
         shortLabel: "APIs",
-        angle: 265,
+        angle: 240,
         className:
-          "border-cyan-400/30 bg-cyan-500/15 text-cyan-100 shadow-cyan-950/40",
+          "border-cyan-400/40 bg-cyan-500/15 text-cyan-100 shadow-cyan-950/40",
       },
     ],
   },
   {
     name: "Data",
-    radius: 118,
-    mobileRadius: 76,
-    duration: 19,
-    reverse: true,
+    radius: 92,
+    mobileRadius: 55,
+    duration: 15,
+    reverse: false,
     items: [
       {
         label: "SQL Server",
         shortLabel: "SQL",
-        angle: 0,
+        angle: 40,
         className:
-          "border-blue-400/30 bg-blue-500/15 text-blue-100 shadow-blue-950/40",
+          "border-blue-400/40 bg-blue-500/15 text-blue-100 shadow-blue-950/40",
       },
       {
         label: "ETL",
         shortLabel: "ETL",
-        angle: 120,
+        angle: 180,
         className:
-          "border-blue-400/30 bg-blue-500/15 text-blue-100 shadow-blue-950/40",
+          "border-blue-400/40 bg-blue-500/15 text-blue-100 shadow-blue-950/40",
       },
       {
         label: "SSRS",
         shortLabel: "SSRS",
-        angle: 240,
-        className:
-          "border-blue-400/30 bg-blue-500/15 text-blue-100 shadow-blue-950/40",
-      },
-    ],
-  },
-  {
-    name: "AI",
-    radius: 78,
-    mobileRadius: 48,
-    duration: 14,
-    reverse: false,
-    items: [
-      {
-        label: "NLP",
-        shortLabel: "NLP",
-        angle: 35,
-        className:
-          "border-violet-400/30 bg-violet-500/20 text-violet-100 shadow-violet-950/40",
-      },
-      {
-        label: "LLMs",
-        shortLabel: "LLMs",
-        angle: 175,
-        className:
-          "border-violet-400/30 bg-violet-500/20 text-violet-100 shadow-violet-950/40",
-      },
-      {
-        label: "AI Safety",
-        shortLabel: "Safety",
         angle: 300,
         className:
-          "border-violet-400/30 bg-violet-500/20 text-violet-100 shadow-violet-950/40",
+          "border-blue-400/40 bg-blue-500/15 text-blue-100 shadow-blue-950/40",
       },
     ],
   },
@@ -201,7 +209,11 @@ function WeatherGreeting() {
       const data = await response.json();
 
       if (data.latitude && data.longitude) {
-        fetchWeather(data.latitude, data.longitude, data.city || "Auto detected");
+        fetchWeather(
+          data.latitude,
+          data.longitude,
+          data.city || "Auto detected",
+        );
       } else {
         setStatus("Weather unavailable");
       }
@@ -310,7 +322,9 @@ function WeatherGreeting() {
               {greeting}
             </span>
 
-            <span className={`mt-1 truncate text-[0.68rem] font-semibold sm:text-xs ${weatherTone}`}>
+            <span
+              className={`mt-1 truncate text-[0.68rem] font-semibold sm:text-xs ${weatherTone}`}
+            >
               {weatherText}
             </span>
           </div>
@@ -324,18 +338,23 @@ function OrbitVisual() {
   const isCompact = useIsCompact();
 
   return (
-    <div className="relative mx-auto my-8 flex h-[280px] w-full max-w-[280px] items-center justify-center sm:h-[420px] sm:max-w-[420px] lg:h-[460px] lg:max-w-[460px]">
+    <div className="relative mx-auto my-8 flex h-[290px] w-full max-w-[290px] items-center justify-center sm:h-[430px] sm:max-w-[430px] lg:h-[480px] lg:max-w-[480px]">
       <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-400/10 via-blue-500/10 to-violet-500/10 blur-3xl" />
 
-      <div className="absolute inset-[10px] rounded-full border border-dashed border-cyan-400/20 sm:inset-[22px]" />
-      <div className="absolute inset-[42px] rounded-full border border-dashed border-blue-400/20 sm:inset-[72px]" />
-      <div className="absolute inset-[72px] rounded-full border border-dashed border-violet-400/20 sm:inset-[120px]" />
+      {/* Outer AI ring */}
+      <div className="absolute inset-[10px] rounded-full border border-dashed border-violet-400/25 sm:inset-[20px]" />
+
+      {/* Middle Engineering ring */}
+      <div className="absolute inset-[48px] rounded-full border border-dashed border-cyan-400/25 sm:inset-[68px]" />
+
+      {/* Inner Data ring */}
+      <div className="absolute inset-[82px] rounded-full border border-dashed border-blue-400/25 sm:inset-[108px]" />
 
       <div className="absolute h-[130px] w-[130px] rounded-full bg-cyan-400/10 blur-2xl sm:h-[190px] sm:w-[190px]" />
 
       <div className="relative z-30 flex flex-col items-center">
         <div className="rounded-full bg-gradient-to-br from-cyan-400/30 via-blue-500/20 to-violet-500/30 p-1.5 shadow-2xl shadow-cyan-500/20">
-          <div className="h-20 w-20 overflow-hidden rounded-full border-2 border-white/10 bg-slate-900 sm:h-32 sm:w-32">
+          <div className="h-[72px] w-[72px] overflow-hidden rounded-full border-2 border-white/10 bg-slate-900 sm:h-28 sm:w-28">
             <img
               src={profileImage}
               alt="Razny Razeek"
@@ -575,7 +594,8 @@ function App() {
               >
                 <Sparkles size={16} className="shrink-0" />
                 <span className="truncate">
-                  Full-Stack Software Engineer · MSc Data Science · AI Research Direction
+                  Full-Stack Software Engineer · MSc Data Science · AI Research
+                  Direction
                 </span>
               </motion.div>
 
@@ -595,11 +615,11 @@ function App() {
               >
                 Hi, I’m{" "}
                 <span className="font-semibold text-white">Razny Razeek</span> —
-                a Full-Stack Software Engineer with 4+ years of experience building
-                production-ready web applications, REST APIs, ETL pipelines, reporting
-                automation, and cloud-supported systems. I also hold an MSc in Data
-                Science and I am preparing for PhD research in AI, NLP, LLMs, AI Safety,
-                and Trustworthy AI.
+                a Full-Stack Software Engineer with 4+ years of experience
+                building production-ready web applications, REST APIs, ETL
+                pipelines, reporting automation, and cloud-supported systems. I
+                also hold an MSc in Data Science and I am preparing for PhD
+                research in AI, NLP, LLMs, AI Safety, and Trustworthy AI.
               </motion.p>
 
               <motion.div
@@ -611,7 +631,10 @@ function App() {
                   className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-cyan-400/20 transition hover:bg-cyan-300 sm:w-auto"
                 >
                   View Projects
-                  <ArrowRight size={18} className="transition group-hover:translate-x-1" />
+                  <ArrowRight
+                    size={18}
+                    className="transition group-hover:translate-x-1"
+                  />
                 </a>
 
                 <a
@@ -643,7 +666,9 @@ function App() {
                     key={stat.label}
                     className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur"
                   >
-                    <p className="text-2xl font-black text-cyan-300">{stat.value}</p>
+                    <p className="text-2xl font-black text-cyan-300">
+                      {stat.value}
+                    </p>
                     <p className="mt-1 text-xs leading-5 text-slate-400">
                       {stat.label}
                     </p>
@@ -668,19 +693,21 @@ function App() {
 
             <div className="grid gap-8 md:grid-cols-2">
               <p className="text-lg leading-8 text-slate-300">
-                I am a Full-Stack Software Engineer with over four years of commercial
-                experience designing, developing, and maintaining scalable web and
-                data-driven applications. My technical background includes C#, .NET Core,
-                ASP.NET Core, React, Angular, SQL Server, SSIS, SSRS, Azure, Docker,
-                GitHub Actions, IIS deployments, and CI/CD pipelines.
+                I am a Full-Stack Software Engineer with over four years of
+                commercial experience designing, developing, and maintaining
+                scalable web and data-driven applications. My technical
+                background includes C#, .NET Core, ASP.NET Core, React, Angular,
+                SQL Server, SSIS, SSRS, Azure, Docker, GitHub Actions, IIS
+                deployments, and CI/CD pipelines.
               </p>
 
               <p className="text-lg leading-8 text-slate-300">
-                Alongside my software engineering experience, I hold an MSc in Data
-                Science and a BEng Honours degree in Software Engineering. My academic
-                and research interests focus on Artificial Intelligence, Natural Language
-                Processing, Large Language Models, Trustworthy AI, AI Safety, AI Security,
-                and scalable AI software systems.
+                Alongside my software engineering experience, I hold an MSc in
+                Data Science and a BEng Honours degree in Software Engineering.
+                My academic and research interests focus on Artificial
+                Intelligence, Natural Language Processing, Large Language
+                Models, Trustworthy AI, AI Safety, AI Security, and scalable AI
+                software systems.
               </p>
             </div>
 
@@ -690,7 +717,9 @@ function App() {
                   key={stat.label}
                   className="rounded-2xl border border-white/10 bg-white/5 p-6"
                 >
-                  <h3 className="text-3xl font-bold text-cyan-400">{stat.value}</h3>
+                  <h3 className="text-3xl font-bold text-cyan-400">
+                    {stat.value}
+                  </h3>
                   <p className="mt-2 text-slate-300">{stat.label}</p>
                 </div>
               ))}
@@ -698,249 +727,751 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="bg-slate-900/50 px-6 py-24">
-          <div className="mx-auto max-w-6xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              Skills
-            </p>
+<section
+  id="skills"
+  className="relative overflow-hidden bg-slate-950 px-4 py-24 sm:px-6"
+>
+  <div className="absolute inset-0 -z-20 bg-slate-950" />
+  <div className="absolute inset-0 -z-10 grid-bg opacity-40" />
 
-            <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
-              Technical Skills
-            </h2>
+  <div className="absolute left-[-12rem] top-20 -z-10 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
+  <div className="absolute bottom-10 right-[-12rem] -z-10 h-96 w-96 rounded-full bg-violet-500/10 blur-3xl" />
 
-            <p className="mb-12 max-w-3xl text-lg leading-8 text-slate-300">
-              A practical full-stack skill set covering backend development, frontend
-              engineering, databases, data integration, reporting automation, cloud
-              deployment, DevOps, and AI/data science workflows.
-            </p>
+  <div className="mx-auto max-w-7xl">
+    <div className="mb-14 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+      <div>
+        <p className="mb-4 inline-flex rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-cyan-300">
+          Engineering Capability Matrix
+        </p>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {[
-                {
-                  title: "Backend Development",
-                  skills: [
-                    "C#",
-                    ".NET Core",
-                    "ASP.NET Core",
-                    "ASP.NET MVC",
-                    "RESTful APIs",
-                    "Entity Framework Core",
-                    "LINQ",
-                    "Microservices",
-                  ],
-                },
-                {
-                  title: "Frontend Development",
-                  skills: [
-                    "React",
-                    "Angular",
-                    "Next.js",
-                    "Blazor",
-                    "JavaScript",
-                    "TypeScript",
-                    "Tailwind CSS",
-                    "Bootstrap",
-                  ],
-                },
-                {
-                  title: "Databases",
-                  skills: [
-                    "SQL Server",
-                    "PostgreSQL",
-                    "MySQL",
-                    "MongoDB",
-                    "SQLite",
-                    "T-SQL",
-                    "Stored Procedures",
-                    "Index Optimisation",
-                  ],
-                },
-                {
-                  title: "Data & Reporting",
-                  skills: [
-                    "SSIS",
-                    "SSRS",
-                    "ETL Pipelines",
-                    "SQL Server Agent",
-                    "JSON Processing",
-                    "XML Processing",
-                    "CSV Processing",
-                    "XSLT / XPath",
-                  ],
-                },
-                {
-                  title: "Cloud & DevOps",
-                  skills: [
-                    "Microsoft Azure",
-                    "Azure Functions",
-                    "Azure SQL",
-                    "Docker",
-                    "Git",
-                    "GitHub Actions",
-                    "CI/CD Pipelines",
-                    "IIS Deployment",
-                  ],
-                },
-                {
-                  title: "AI & Data Science",
-                  skills: [
-                    "Python",
-                    "Machine Learning",
-                    "NLP",
-                    "BERT",
-                    "scikit-learn",
-                    "NLTK",
-                    "Pandas",
-                    "NumPy",
-                  ],
-                },
-                {
-                  title: "Architecture & Practices",
-                  skills: [
-                    "Clean Architecture",
-                    "SOLID Principles",
-                    "REST API Design",
-                    "Unit Testing",
-                    "Integration Testing",
-                    "Agile/Scrum",
-                    "Code Refactoring",
-                    "Production Support",
-                  ],
-                },
-                {
-                  title: "Research Interests",
-                  skills: [
-                    "Large Language Models",
-                    "Trustworthy AI",
-                    "AI Safety",
-                    "AI Security",
-                    "Adversarial Robustness",
-                    "Agentic AI Systems",
-                    "Scalable AI Systems",
-                    "Responsible AI",
-                  ],
-                },
-                {
-                  title: "Core Strengths",
-                  skills: [
-                    "Problem Solving",
-                    "System Design",
-                    "Database Optimisation",
-                    "Automation",
-                    "Technical Documentation",
-                    "Team Collaboration",
-                    "Debugging",
-                    "Continuous Learning",
-                  ],
-                },
-              ].map((category) => (
+        <h2 className="text-4xl font-black tracking-tight text-white md:text-5xl">
+          Senior-level stack for{" "}
+          <span className="text-gradient">secure scalable systems</span>
+        </h2>
+      </div>
+
+      <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg lg:ml-auto">
+        A production-focused technical profile across backend engineering,
+        frontend systems, databases, cloud delivery, data automation, and AI
+        research workflows — structured like an engineering control layer.
+      </p>
+    </div>
+
+    <div className="mb-8 grid gap-4 md:grid-cols-4">
+      {[
+        { label: "Backend", value: ".NET / APIs", tone: "text-cyan-300" },
+        { label: "Data Layer", value: "SQL / ETL", tone: "text-blue-300" },
+        { label: "AI Track", value: "NLP / LLMs", tone: "text-violet-300" },
+        { label: "Delivery", value: "Azure / CI/CD", tone: "text-emerald-300" },
+      ].map((item) => (
+        <div
+          key={item.label}
+          className="rounded-2xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur"
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+            {item.label}
+          </p>
+          <p className={`mt-2 text-lg font-black ${item.tone}`}>
+            {item.value}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <div className="grid gap-5 md:grid-cols-2">
+      {[
+        {
+          code: "SYS-01",
+          title: "Backend Systems Engineering",
+          level: "Production Core",
+          accent: "from-cyan-400/30 via-blue-500/10 to-transparent",
+          border: "hover:border-cyan-400/40",
+          metrics: ["REST APIs", "Service Design", "Clean Architecture"],
+          skills: [
+            "C#",
+            ".NET Core",
+            "ASP.NET Core",
+            "ASP.NET MVC",
+            "Entity Framework Core",
+            "LINQ",
+            "Microservices",
+            "SOLID Principles",
+            "Unit Testing",
+          ],
+        },
+        {
+          code: "SEC-02",
+          title: "Secure API & Integration Layer",
+          level: "System Boundary",
+          accent: "from-emerald-400/25 via-cyan-500/10 to-transparent",
+          border: "hover:border-emerald-400/40",
+          metrics: ["JWT", "Auth Flows", "Third-party APIs"],
+          skills: [
+            "REST API Design",
+            "JWT Authentication",
+            "Secure Integrations",
+            "Error Handling",
+            "Validation",
+            "Production Debugging",
+            "Refactoring",
+          ],
+        },
+        {
+          code: "DATA-03",
+          title: "Database Performance & Data Systems",
+          level: "Data Control Plane",
+          accent: "from-blue-400/30 via-cyan-500/10 to-transparent",
+          border: "hover:border-blue-400/40",
+          metrics: ["50% DB Gain", "Indexing", "T-SQL"],
+          skills: [
+            "SQL Server",
+            "PostgreSQL",
+            "MySQL",
+            "MongoDB",
+            "SQLite",
+            "Stored Procedures",
+            "Index Optimisation",
+            "Schema Design",
+            "Query Tuning",
+          ],
+        },
+        {
+          code: "PIPE-04",
+          title: "ETL, Reporting & Automation",
+          level: "Operational Intelligence",
+          accent: "from-sky-400/30 via-blue-500/10 to-transparent",
+          border: "hover:border-sky-400/40",
+          metrics: ["70% Reporting Automation", "SSIS", "SSRS"],
+          skills: [
+            "SSIS",
+            "SSRS",
+            "ETL Pipelines",
+            "SQL Server Agent",
+            "JSON Processing",
+            "XML Processing",
+            "CSV Processing",
+            "XSLT / XPath",
+            "Reporting Automation",
+          ],
+        },
+        {
+          code: "UI-05",
+          title: "Frontend Engineering",
+          level: "Client Experience Layer",
+          accent: "from-cyan-400/20 via-violet-500/10 to-transparent",
+          border: "hover:border-cyan-400/40",
+          metrics: ["Responsive UI", "React", "Performance"],
+          skills: [
+            "React",
+            "Angular",
+            "Next.js",
+            "Blazor",
+            "JavaScript",
+            "TypeScript",
+            "Tailwind CSS",
+            "Bootstrap",
+            "UI Performance",
+          ],
+        },
+        {
+          code: "CLOUD-06",
+          title: "Cloud, DevOps & Deployment",
+          level: "Release Pipeline",
+          accent: "from-violet-400/30 via-blue-500/10 to-transparent",
+          border: "hover:border-violet-400/40",
+          metrics: ["Azure", "CI/CD", "IIS"],
+          skills: [
+            "Microsoft Azure",
+            "Azure Functions",
+            "Azure SQL",
+            "Docker",
+            "Git",
+            "GitHub Actions",
+            "CI/CD Pipelines",
+            "IIS Deployment",
+            "Remote Desktop",
+          ],
+        },
+        {
+          code: "AI-07",
+          title: "AI, NLP & Research Engineering",
+          level: "Research Systems",
+          accent: "from-fuchsia-400/30 via-violet-500/10 to-transparent",
+          border: "hover:border-fuchsia-400/40",
+          metrics: ["NLP", "BERT", "LLMs"],
+          skills: [
+            "Python",
+            "Machine Learning",
+            "NLP",
+            "BERT",
+            "scikit-learn",
+            "NLTK",
+            "Pandas",
+            "NumPy",
+            "Sentiment Analysis",
+            "Time-Series Forecasting",
+          ],
+        },
+        {
+          code: "TRUST-08",
+          title: "Trustworthy AI & Security Direction",
+          level: "PhD Research Track",
+          accent: "from-red-400/20 via-violet-500/10 to-transparent",
+          border: "hover:border-violet-400/40",
+          metrics: ["AI Safety", "Robustness", "Security"],
+          skills: [
+            "Large Language Models",
+            "Trustworthy AI",
+            "AI Safety",
+            "AI Security",
+            "Adversarial Robustness",
+            "Prompt Attacks",
+            "Responsible AI",
+            "Agentic AI Systems",
+          ],
+        },
+      ].map((category) => (
+        <motion.article
+          key={category.code}
+          initial={{ opacity: 0, y: 26 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className={`group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-[1px] shadow-2xl shadow-slate-950/40 transition ${category.border}`}
+        >
+          <div
+            className={`absolute inset-0 bg-gradient-to-br ${category.accent} opacity-80 transition duration-500 group-hover:opacity-100`}
+          />
+
+          <div className="relative h-full rounded-[1.95rem] bg-slate-950/90 p-6 backdrop-blur-xl">
+            <div className="mb-6 flex items-start justify-between gap-4">
+              <div>
+                <div className="mb-4 flex flex-wrap items-center gap-2">
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.65rem] font-black tracking-[0.22em] text-cyan-200">
+                    {category.code}
+                  </span>
+
+                  <span className="rounded-full border border-white/10 bg-slate-900/80 px-3 py-1 text-[0.7rem] font-semibold text-slate-400">
+                    {category.level}
+                  </span>
+                </div>
+
+                <h3 className="text-2xl font-black tracking-tight text-white">
+                  {category.title}
+                </h3>
+              </div>
+
+              <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-300 shadow-inner shadow-cyan-950/40">
+                <div className="absolute inset-2 rounded-xl border border-cyan-400/10" />
+                <Code2 size={24} />
+              </div>
+            </div>
+
+            <div className="mb-6 grid gap-2 sm:grid-cols-3">
+              {category.metrics.map((metric) => (
                 <div
-                  key={category.title}
-                  className="glow-card rounded-2xl border border-white/10 bg-white/[0.03] p-[1px] transition hover:-translate-y-1"
+                  key={metric}
+                  className="rounded-xl border border-white/10 bg-slate-900/70 px-3 py-2"
                 >
-                  <div className="h-full rounded-2xl bg-slate-950/90 p-6">
-                    <h3 className="mb-4 text-xl font-bold text-white">
-                      {category.title}
+                  <p className="text-[0.7rem] font-semibold text-slate-400">
+                    {metric}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {category.skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border border-white/10 bg-slate-900/80 px-3 py-1.5 text-xs font-semibold text-slate-300 transition hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-200 sm:text-sm"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-7 flex items-center gap-3">
+              <div className="h-px flex-1 bg-gradient-to-r from-cyan-400/50 via-blue-400/20 to-transparent" />
+              <p className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-slate-500">
+                Active Capability
+              </p>
+            </div>
+          </div>
+        </motion.article>
+      ))}
+    </div>
+  </div>
+</section>
+
+        <section
+  id="experience"
+  className="relative overflow-hidden px-4 py-24 sm:px-6"
+>
+  <div className="absolute inset-0 -z-20 bg-slate-950" />
+  <div className="absolute inset-0 -z-10 grid-bg opacity-35" />
+  <div className="absolute left-[-10rem] top-20 -z-10 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
+  <div className="absolute bottom-10 right-[-10rem] -z-10 h-96 w-96 rounded-full bg-violet-500/10 blur-3xl" />
+
+  <div className="mx-auto max-w-7xl">
+    <div className="mb-14 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+      <div>
+        <p className="mb-4 inline-flex rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-cyan-300">
+          Career Execution Layer
+        </p>
+
+        <h2 className="text-4xl font-black tracking-tight text-white md:text-5xl">
+          Production experience in{" "}
+          <span className="text-gradient">engineering delivery</span>
+        </h2>
+      </div>
+
+      <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg lg:ml-auto">
+        Real-world delivery across backend systems, frontend engineering,
+        database optimisation, ETL workflows, reporting automation, and
+        cloud-supported software platforms.
+      </p>
+    </div>
+
+    <div className="mb-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      {[
+        {
+          label: "Years",
+          value: "4+",
+          sub: "Commercial engineering",
+          icon: Briefcase,
+          tone: "text-cyan-300",
+          bg: "bg-cyan-400/10",
+          border: "border-cyan-400/20",
+        },
+        {
+          label: "Platforms",
+          value: ".NET / React",
+          sub: "Primary delivery stack",
+          icon: ServerCog,
+          tone: "text-blue-300",
+          bg: "bg-blue-400/10",
+          border: "border-blue-400/20",
+        },
+        {
+          label: "Data Ops",
+          value: "SQL / SSIS / SSRS",
+          sub: "ETL + reporting systems",
+          icon: Database,
+          tone: "text-violet-300",
+          bg: "bg-violet-400/10",
+          border: "border-violet-400/20",
+        },
+        {
+          label: "Impact",
+          value: "50% / 70%",
+          sub: "DB + automation gains",
+          icon: LineChart,
+          tone: "text-emerald-300",
+          bg: "bg-emerald-400/10",
+          border: "border-emerald-400/20",
+        },
+      ].map((item) => {
+        const Icon = item.icon
+
+        return (
+          <div
+            key={item.label}
+            className={`rounded-3xl border ${item.border} bg-white/[0.035] p-5 backdrop-blur`}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+                  {item.label}
+                </p>
+
+                <p className={`mt-2 text-xl font-black ${item.tone}`}>
+                  {item.value}
+                </p>
+
+                <p className="mt-1 text-sm text-slate-400">{item.sub}</p>
+              </div>
+
+              <div
+                className={`flex h-12 w-12 items-center justify-center rounded-2xl border ${item.border} ${item.bg} ${item.tone}`}
+              >
+                <Icon size={20} />
+              </div>
+            </div>
+          </div>
+        )
+      })}
+    </div>
+
+    <div className="space-y-8">
+      {[
+        {
+          id: "EXP-03",
+          role: "Full-Stack Developer",
+          company: "Spicehaart",
+          location: "Colchester, United Kingdom",
+          period: "Sept 2024 – Present",
+          status: "Current Role",
+          accent: "from-cyan-400/30 via-blue-500/10 to-transparent",
+          border: "hover:border-cyan-400/40",
+          iconWrap: "border-cyan-400/20 bg-cyan-400/10 text-cyan-300",
+          icon: ServerCog,
+          metrics: [
+            "50% DB Performance Gain",
+            "70% Reporting Automation",
+            "Production APIs",
+          ],
+          stack: [
+            ".NET Core",
+            "React",
+            "Angular",
+            "Next.js",
+            "SQL Server",
+            "SSIS",
+            "SSRS",
+            "T-SQL",
+            "Microservices",
+            "Windows Services",
+          ],
+          modules: [
+            {
+              label: "SYSTEM MODULE",
+              icon: ServerCog,
+              title: "API & Service Architecture",
+              text: "Built scalable .NET Core REST APIs, Windows Services, and microservices for business-critical platforms and third-party integrations.",
+              tone: "text-cyan-300",
+              bg: "bg-cyan-400/10",
+              border: "border-cyan-400/20",
+            },
+            {
+              label: "APPLICATION LAYER",
+              icon: Workflow,
+              title: "Commercial Web Platforms",
+              text: "Developed commercial web applications using React, Angular, and Next.js, improving responsiveness and user experience.",
+              tone: "text-blue-300",
+              bg: "bg-blue-400/10",
+              border: "border-blue-400/20",
+            },
+            {
+              label: "DATA OPTIMISATION",
+              icon: Database,
+              title: "SQL Performance Engineering",
+              text: "Optimised T-SQL queries, stored procedures, functions, and indexes, improving database performance by up to 50%.",
+              tone: "text-violet-300",
+              bg: "bg-violet-400/10",
+              border: "border-violet-400/20",
+            },
+            {
+              label: "AUTOMATION PIPELINE",
+              icon: Cpu,
+              title: "ETL Data Processing",
+              text: "Built SSIS ETL pipelines to process large-scale JSON, XML, and CSV data into centralised systems.",
+              tone: "text-emerald-300",
+              bg: "bg-emerald-400/10",
+              border: "border-emerald-400/20",
+            },
+            {
+              label: "REPORTING CONTROL",
+              icon: LineChart,
+              title: "SSRS Reporting Automation",
+              text: "Created and automated SSRS reports for financial, marketing, operational, and commission-based reporting using SQL Server Agent.",
+              tone: "text-sky-300",
+              bg: "bg-sky-400/10",
+              border: "border-sky-400/20",
+            },
+          ],
+        },
+        {
+          id: "EXP-02",
+          role: "Full-Stack Developer",
+          company: "Self-Employed",
+          location: "Bristol, United Kingdom · Remote",
+          period: "Apr 2024 – Sept 2024",
+          status: "Contract / Freelance",
+          accent: "from-violet-400/30 via-cyan-500/10 to-transparent",
+          border: "hover:border-violet-400/40",
+          iconWrap: "border-violet-400/20 bg-violet-400/10 text-violet-300",
+          icon: Workflow,
+          metrics: [
+            "JWT Security",
+            "25% DB Improvement",
+            "Codebase Ownership",
+          ],
+          stack: [
+            ".NET Core",
+            "React",
+            "Blazor",
+            "ASP.NET Core",
+            "JWT",
+            "MySQL",
+            "Clean Architecture",
+            "Debugging",
+            "Refactoring",
+          ],
+          modules: [
+            {
+              label: "SECURE API LAYER",
+              icon: ShieldCheck,
+              title: "JWT Integration",
+              text: "Developed RESTful APIs and secured web integrations using JWT authentication.",
+              tone: "text-emerald-300",
+              bg: "bg-emerald-400/10",
+              border: "border-emerald-400/20",
+            },
+            {
+              label: "UI DELIVERY",
+              icon: Code2,
+              title: "Frontend Feature Builds",
+              text: "Built frontend features using React, Blazor, and ASP.NET Core to support business requirements.",
+              tone: "text-cyan-300",
+              bg: "bg-cyan-400/10",
+              border: "border-cyan-400/20",
+            },
+            {
+              label: "SYSTEM RECOVERY",
+              icon: ServerCog,
+              title: "Codebase Ownership",
+              text: "Took ownership of existing full-stack codebases, debugging .NET Core and frontend issues.",
+              tone: "text-blue-300",
+              bg: "bg-blue-400/10",
+              border: "border-blue-400/20",
+            },
+            {
+              label: "ARCHITECTURE CLEANUP",
+              icon: Workflow,
+              title: "Maintainability Refactor",
+              text: "Refactored code flows and improved maintainability using clean architecture principles.",
+              tone: "text-violet-300",
+              bg: "bg-violet-400/10",
+              border: "border-violet-400/20",
+            },
+            {
+              label: "DATA TUNING",
+              icon: Database,
+              title: "MySQL Performance",
+              text: "Built and optimised MySQL queries and indexes, improving database performance by 25%.",
+              tone: "text-sky-300",
+              bg: "bg-sky-400/10",
+              border: "border-sky-400/20",
+            },
+          ],
+        },
+        {
+          id: "EXP-01",
+          role: "Software Developer",
+          company: "24K Tech Solutions",
+          location: "Sri Lanka",
+          period: "Jul 2021 – Nov 2022",
+          status: "Core Engineering",
+          accent: "from-blue-400/30 via-cyan-500/10 to-transparent",
+          border: "hover:border-blue-400/40",
+          iconWrap: "border-blue-400/20 bg-blue-400/10 text-blue-300",
+          icon: Cpu,
+          metrics: [
+            "Enterprise Apps",
+            "E-Commerce Delivery",
+            "IIS Deployment",
+          ],
+          stack: [
+            "C#",
+            "ASP.NET Core",
+            "ASP.NET MVC",
+            "Angular",
+            "SQL Server",
+            "MySQL",
+            "SQLite",
+            "XSLT",
+            "XPath",
+            "Bootstrap",
+          ],
+          modules: [
+            {
+              label: "APPLICATION CORE",
+              icon: Cpu,
+              title: ".NET Application Development",
+              text: "Developed and maintained applications using C#, ASP.NET Core, ASP.NET MVC, Web Forms, Razor Pages, WinForms, .NET Framework, and .NET Core.",
+              tone: "text-cyan-300",
+              bg: "bg-cyan-400/10",
+              border: "border-cyan-400/20",
+            },
+            {
+              label: "CLIENT LAYER",
+              icon: Code2,
+              title: "Responsive Frontend Delivery",
+              text: "Built responsive frontend features using Angular, JavaScript, Bootstrap, Tailwind CSS, HTML, and CSS.",
+              tone: "text-blue-300",
+              bg: "bg-blue-400/10",
+              border: "border-blue-400/20",
+            },
+            {
+              label: "DATABASE LAYER",
+              icon: Database,
+              title: "Schema & Query Design",
+              text: "Designed database schemas, queries, stored procedures, and indexes across SQL Server, MySQL, and SQLite.",
+              tone: "text-violet-300",
+              bg: "bg-violet-400/10",
+              border: "border-violet-400/20",
+            },
+            {
+              label: "DATA TRANSFORM",
+              icon: Workflow,
+              title: "XML Processing",
+              text: "Processed, transformed, and integrated XML data using XSLT and XPath within enterprise applications.",
+              tone: "text-emerald-300",
+              bg: "bg-emerald-400/10",
+              border: "border-emerald-400/20",
+            },
+            {
+              label: "DEPLOYMENT OPS",
+              icon: ServerCog,
+              title: "Production Delivery",
+              text: "Maintained e-commerce platforms, delivering new features, bug fixes, production-ready pages, and IIS deployments.",
+              tone: "text-sky-300",
+              bg: "bg-sky-400/10",
+              border: "border-sky-400/20",
+            },
+          ],
+        },
+      ].map((job, index) => {
+        const Icon = job.icon
+
+        return (
+          <motion.article
+            key={`${job.company}-${job.period}`}
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.55, delay: index * 0.08 }}
+            className={`group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-[1px] shadow-2xl shadow-slate-950/40 transition ${job.border}`}
+          >
+            <div
+              className={`absolute inset-0 bg-gradient-to-br ${job.accent} opacity-80 transition duration-500 group-hover:opacity-100`}
+            />
+
+            <div className="relative rounded-[1.95rem] bg-slate-950/90 p-6 backdrop-blur-xl md:p-8">
+              <div className="mb-6 flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+                <div className="flex items-start gap-4">
+                  <div
+                    className={`relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border shadow-inner shadow-slate-950/40 ${job.iconWrap}`}
+                  >
+                    <div className="absolute inset-2 rounded-xl border border-white/5" />
+                    <Icon size={24} />
+                  </div>
+
+                  <div>
+                    <div className="mb-3 flex flex-wrap items-center gap-2">
+                      <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.68rem] font-black tracking-[0.22em] text-cyan-200">
+                        {job.id}
+                      </span>
+
+                      <span className="rounded-full border border-white/10 bg-slate-900/80 px-3 py-1 text-[0.72rem] font-semibold text-slate-400">
+                        {job.status}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl font-black tracking-tight text-white md:text-3xl">
+                      {job.role}
                     </h3>
 
-                    <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="rounded-full border border-white/10 bg-slate-900/80 px-3 py-1 text-sm text-slate-300"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+                    <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+                      <span className="inline-flex items-center gap-2 font-semibold text-cyan-300">
+                        <Building2 size={16} />
+                        {job.company}
+                      </span>
+
+                      <span className="inline-flex items-center gap-2 text-slate-400">
+                        <MapPin size={15} />
+                        {job.location}
+                      </span>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        <section id="experience" className="px-6 py-24">
-          <div className="mx-auto max-w-6xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              Experience
-            </p>
-
-            <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
-              Professional Experience
-            </h2>
-
-            <div className="space-y-6">
-              {[
-                {
-                  role: "Full-Stack Developer",
-                  company: "Spicehaart",
-                  location: "Colchester, United Kingdom",
-                  period: "Sept 2024 – Present",
-                  highlights: [
-                    "Built scalable .NET Core REST APIs, Windows Services, and microservices for business-critical platforms and third-party integrations.",
-                    "Developed commercial web applications using React, Angular, and Next.js, improving responsiveness and user experience.",
-                    "Optimised T-SQL queries, stored procedures, functions, and indexes, improving database performance by up to 50%.",
-                    "Built SSIS ETL pipelines to process large-scale JSON, XML, and CSV data into centralised systems.",
-                    "Created and automated SSRS reports for financial, marketing, operational, and commission-based reporting using SQL Server Agent.",
-                  ],
-                },
-                {
-                  role: "Full-Stack Developer",
-                  company: "Self-Employed",
-                  location: "Bristol, United Kingdom · Remote",
-                  period: "Apr 2024 – Sept 2024",
-                  highlights: [
-                    "Developed RESTful APIs and secured web integrations using JWT authentication.",
-                    "Built frontend features using React, Blazor, and ASP.NET Core to support business requirements.",
-                    "Took ownership of existing full-stack codebases, debugging .NET Core and frontend issues.",
-                    "Refactored code flows and improved maintainability using clean architecture principles.",
-                    "Built and optimised MySQL queries and indexes, improving database performance by 25%.",
-                  ],
-                },
-                {
-                  role: "Software Developer",
-                  company: "24K Tech Solutions",
-                  location: "Sri Lanka",
-                  period: "Jul 2021 – Nov 2022",
-                  highlights: [
-                    "Developed and maintained applications using C#, ASP.NET Core, ASP.NET MVC, Web Forms, Razor Pages, WinForms, .NET Framework, and .NET Core.",
-                    "Built responsive frontend features using Angular, JavaScript, Bootstrap, Tailwind CSS, HTML, and CSS.",
-                    "Designed database schemas, queries, stored procedures, and indexes across SQL Server, MySQL, and SQLite.",
-                    "Processed, transformed, and integrated XML data using XSLT and XPath within enterprise applications.",
-                    "Maintained e-commerce platforms, delivering new features, bug fixes, production-ready pages, and IIS deployments.",
-                  ],
-                },
-              ].map((job) => (
-                <div
-                  key={`${job.company}-${job.period}`}
-                  className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-cyan-400/40 hover:bg-white/[0.06] md:p-8"
-                >
-                  <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                    <div>
-                      <h3 className="text-2xl font-bold text-white">{job.role}</h3>
-                      <p className="mt-1 text-lg text-cyan-300">{job.company}</p>
-                      <p className="mt-1 text-sm text-slate-400">{job.location}</p>
-                    </div>
-
-                    <span className="w-fit rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-300">
-                      {job.period}
-                    </span>
-                  </div>
-
-                  <ul className="space-y-3">
-                    {job.highlights.map((item) => (
-                      <li key={item} className="flex gap-3 text-slate-300">
-                        <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-cyan-400" />
-                        <span className="leading-7">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-200">
+                  <CalendarDays size={16} />
+                  {job.period}
                 </div>
-              ))}
+              </div>
+
+              <div className="mb-6 grid gap-3 md:grid-cols-3">
+                {job.metrics.map((metric) => (
+                  <div
+                    key={metric}
+                    className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      Metric
+                    </p>
+                    <p className="mt-1 text-sm font-semibold text-slate-200">
+                      {metric}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mb-7 flex flex-wrap gap-2">
+                {job.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-white/10 bg-slate-900/80 px-3 py-1.5 text-xs font-semibold text-slate-300 transition hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                {job.modules.map((module) => {
+                  const ModuleIcon = module.icon
+
+                  return (
+                    <div
+                      key={`${job.id}-${module.title}`}
+                      className={`group/module relative overflow-hidden rounded-2xl border ${module.border} bg-white/[0.025] p-[1px] transition hover:-translate-y-1 hover:bg-white/[0.045]`}
+                    >
+                      <div className="relative h-full rounded-2xl bg-slate-950/80 p-4 backdrop-blur-xl">
+                        <div className="mb-4 flex items-center justify-between gap-3">
+                          <span
+                            className={`rounded-full border ${module.border} ${module.bg} px-3 py-1 text-[0.62rem] font-black uppercase tracking-[0.2em] ${module.tone}`}
+                          >
+                            {module.label}
+                          </span>
+
+                          <div
+                            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border ${module.border} ${module.bg} ${module.tone}`}
+                          >
+                            <ModuleIcon size={18} />
+                          </div>
+                        </div>
+
+                        <h4 className="text-lg font-black text-white">
+                          {module.title}
+                        </h4>
+
+                        <p className="mt-3 text-sm leading-7 text-slate-300">
+                          {module.text}
+                        </p>
+
+                        <div className="mt-4 h-px w-full bg-gradient-to-r from-cyan-400/40 via-blue-400/20 to-transparent" />
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+
+              <div className="mt-7 flex items-center gap-3">
+                <div className="h-px flex-1 bg-gradient-to-r from-cyan-400/50 via-blue-400/20 to-transparent" />
+                <p className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-slate-500">
+                  Verified Delivery Record
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
+          </motion.article>
+        )
+      })}
+    </div>
+  </div>
+</section>
 
         <section id="projects" className="bg-slate-900/50 px-6 py-24">
           <div className="mx-auto max-w-6xl">
@@ -959,28 +1490,55 @@ function App() {
                   type: "MSc Dissertation · AI / NLP / Machine Learning",
                   description:
                     "Conducted large-scale NLP and machine learning analysis on 500K–750K Bitcoin-related records to investigate sentiment trends and their relationship with cryptocurrency volatility.",
-                  tech: ["Python", "scikit-learn", "NLTK", "BERT", "Pandas", "NumPy", "NLP"],
+                  tech: [
+                    "Python",
+                    "scikit-learn",
+                    "NLTK",
+                    "BERT",
+                    "Pandas",
+                    "NumPy",
+                    "NLP",
+                  ],
                 },
                 {
                   title: "Product Search & Catalog Platform",
                   type: "Full-Stack Search System",
                   description:
                     "Built a scalable product search and catalog platform to ingest, clean, structure, and synchronise bulk external product datasets with Elasticsearch-powered filtering.",
-                  tech: [".NET", "React", "PostgreSQL", "Elasticsearch", "REST APIs"],
+                  tech: [
+                    ".NET",
+                    "React",
+                    "PostgreSQL",
+                    "Elasticsearch",
+                    "REST APIs",
+                  ],
                 },
                 {
                   title: "LesiBuy E-Commerce Platform",
                   type: "Full-Stack E-Commerce Application",
                   description:
                     "Developed a full-stack e-commerce platform with product management, filtering, authentication, secure REST APIs, and optimised data handling.",
-                  tech: ["ASP.NET Core", "EF Core", "Angular", "SQL Server", "Authentication"],
+                  tech: [
+                    "ASP.NET Core",
+                    "EF Core",
+                    "Angular",
+                    "SQL Server",
+                    "Authentication",
+                  ],
                 },
                 {
                   title: "Enterprise Reporting & ETL Automation",
                   type: "Commercial Data Automation",
                   description:
                     "Designed reporting and ETL automation workflows using SSRS, SSIS, SQL Server Agent, and SQL Server optimisation techniques.",
-                  tech: ["SSRS", "SSIS", "SQL Server", "SQL Server Agent", "T-SQL", "ETL"],
+                  tech: [
+                    "SSRS",
+                    "SSIS",
+                    "SQL Server",
+                    "SQL Server Agent",
+                    "T-SQL",
+                    "ETL",
+                  ],
                 },
               ].map((project) => (
                 <article
@@ -995,7 +1553,9 @@ function App() {
                     {project.title}
                   </h3>
 
-                  <p className="mb-6 leading-7 text-slate-300">{project.description}</p>
+                  <p className="mb-6 leading-7 text-slate-300">
+                    {project.description}
+                  </p>
 
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((item) => (
@@ -1024,9 +1584,9 @@ function App() {
             </h2>
 
             <p className="mb-12 max-w-4xl text-lg leading-8 text-slate-300">
-              My research interests focus on the safety, reliability, and scalability of
-              modern AI systems, particularly Large Language Models and NLP-based
-              applications.
+              My research interests focus on the safety, reliability, and
+              scalability of modern AI systems, particularly Large Language
+              Models and NLP-based applications.
             </p>
 
             <div className="grid gap-6 lg:grid-cols-3">
@@ -1041,9 +1601,9 @@ function App() {
                 >
                   <h3 className="mb-4 text-xl font-bold text-white">{title}</h3>
                   <p className="leading-7 text-slate-300">
-                    Exploring reliable, secure, explainable, and responsible AI systems
-                    with a focus on real-world deployment and software engineering
-                    practices.
+                    Exploring reliable, secure, explainable, and responsible AI
+                    systems with a focus on real-world deployment and software
+                    engineering practices.
                   </p>
                 </div>
               ))}
@@ -1084,7 +1644,9 @@ function App() {
                     {edu.result}
                   </span>
 
-                  <h3 className="mt-5 text-2xl font-bold text-white">{edu.degree}</h3>
+                  <h3 className="mt-5 text-2xl font-bold text-white">
+                    {edu.degree}
+                  </h3>
                   <p className="mt-2 text-lg text-cyan-300">{edu.university}</p>
                   <p className="mt-1 text-sm text-slate-400">{edu.period}</p>
                 </div>
@@ -1092,7 +1654,9 @@ function App() {
             </div>
 
             <div className="mt-8 rounded-3xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
-              <h3 className="mb-6 text-2xl font-bold text-white">Certifications</h3>
+              <h3 className="mb-6 text-2xl font-bold text-white">
+                Certifications
+              </h3>
 
               <div className="grid gap-4 md:grid-cols-2">
                 {[
@@ -1103,7 +1667,9 @@ function App() {
                     key={certification}
                     className="rounded-2xl border border-white/10 bg-slate-950/70 p-5"
                   >
-                    <p className="font-medium text-slate-200">{certification}</p>
+                    <p className="font-medium text-slate-200">
+                      {certification}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -1124,8 +1690,8 @@ function App() {
 
               <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-slate-300">
                 I am open to software engineering opportunities, AI research
-                collaborations, PhD discussions, technical projects, and professional
-                networking.
+                collaborations, PhD discussions, technical projects, and
+                professional networking.
               </p>
 
               <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -1191,7 +1757,8 @@ function App() {
 
       <footer className="border-t border-white/10 px-6 py-8">
         <div className="mx-auto max-w-6xl text-center text-sm text-slate-400">
-          © {new Date().getFullYear()} Razny Razeek. Built with React and Tailwind CSS.
+          © {new Date().getFullYear()} Razny Razeek. Built with React and
+          Tailwind CSS.
         </div>
       </footer>
     </div>
