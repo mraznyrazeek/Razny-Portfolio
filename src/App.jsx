@@ -1,6 +1,46 @@
 import { useState } from 'react'
 import './App.css'
 
+const navLinks = [
+  ['About', '#about'],
+  ['Skills', '#skills'],
+  ['Experience', '#experience'],
+  ['Projects', '#projects'],
+  ['Research', '#research'],
+  ['Education', '#education'],
+  ['Contact', '#contact'],
+]
+
+const heroSkills = [
+  '.NET Core',
+  'React',
+  'SQL Server',
+  'Azure',
+  'SSIS',
+  'SSRS',
+  'Python',
+  'NLP',
+  'LLMs',
+]
+
+const focusAreas = [
+  {
+    title: 'Software Engineering',
+    description: '.NET Core, React, SQL Server, REST APIs, Azure, CI/CD',
+    color: 'cyan',
+  },
+  {
+    title: 'Data & AI Research',
+    description: 'NLP, Machine Learning, BERT, LLMs, AI Safety, Trustworthy AI',
+    color: 'blue',
+  },
+  {
+    title: 'PhD Direction',
+    description: 'Reliable, secure, explainable, and scalable AI systems',
+    color: 'violet',
+  },
+]
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -14,15 +54,7 @@ function App() {
     </a>
 
     <div className="hidden items-center gap-6 lg:flex">
-      {[
-        ['About', '#about'],
-        ['Skills', '#skills'],
-        ['Experience', '#experience'],
-        ['Projects', '#projects'],
-        ['Research', '#research'],
-        ['Education', '#education'],
-        ['Contact', '#contact'],
-      ].map(([label, href]) => (
+      {navLinks.map(([label, href]) => (
         <a
           key={label}
           href={href}
@@ -134,7 +166,7 @@ function App() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                {['.NET Core', 'React', 'SQL Server', 'Azure', 'SSIS', 'SSRS', 'Python', 'NLP', 'LLMs'].map((skill) => (
+                {heroSkills.map((skill) => (
                   <span
                     key={skill}
                     className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300"
