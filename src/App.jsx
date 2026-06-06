@@ -15,6 +15,7 @@ function App() {
             <a href="#skills" className="text-sm text-slate-300 transition hover:text-cyan-400">Skills</a>
             <a href="#experience" className="text-sm text-slate-300 transition hover:text-cyan-400">Experience</a>
             <a href="#projects" className="text-sm text-slate-300 transition hover:text-cyan-400">Projects</a>
+            <a href="#education" className="text-sm text-slate-300 transition hover:text-cyan-400">Education</a>
             <a href="#research" className="text-sm text-slate-300 transition hover:text-cyan-400">Research</a>
             <a href="#contact" className="text-sm text-slate-300 transition hover:text-cyan-400">Contact</a>
           </div>
@@ -658,6 +659,99 @@ function App() {
         interested in how software engineering principles can improve the design,
         testing, monitoring, governance, and responsible deployment of AI systems.
       </p>
+    </div>
+  </div>
+</section>
+
+{/* Education */}
+<section id="education" className="bg-slate-900/50 px-6 py-24">
+  <div className="mx-auto max-w-6xl">
+    <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
+      Education
+    </p>
+
+    <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
+      Education & Certifications
+    </h2>
+
+    <p className="mb-12 max-w-3xl text-lg leading-8 text-slate-300">
+      Academic background in software engineering and data science, supported by
+      cloud and software development certifications.
+    </p>
+
+    <div className="grid gap-6 lg:grid-cols-2">
+      {[
+        {
+          degree: 'MSc Data Science',
+          result: 'Merit',
+          university: 'University of the West of England',
+          location: 'Bristol, United Kingdom',
+          period: 'Jan 2023 – Mar 2024',
+          details: [
+            'Focused on data science, machine learning, NLP, statistical analysis, and applied research.',
+            'Completed dissertation on Global Bitcoin Sentiment and Volatility Modelling using NLP and Machine Learning.',
+            'Worked with large-scale text data, traditional ML models, transformer-based methods, and time-series analysis.',
+          ],
+        },
+        {
+          degree: 'BEng (Hons) Software Engineering',
+          result: 'Upper Second Class Honours',
+          university: 'London Metropolitan University',
+          location: 'London, United Kingdom',
+          period: 'Sept 2018 – Nov 2021',
+          details: [
+            'Built a strong foundation in programming, system design, databases, algorithms, and software development principles.',
+            'Developed practical software engineering skills across web development, backend systems, and database design.',
+            'Strengthened understanding of scalable software design and professional development practices.',
+          ],
+        },
+      ].map((edu) => (
+        <div
+          key={edu.degree}
+          className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-cyan-400/40 hover:bg-white/[0.06] md:p-8"
+        >
+          <div className="mb-4">
+            <span className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-xs font-medium text-cyan-300">
+              {edu.result}
+            </span>
+          </div>
+
+          <h3 className="text-2xl font-bold text-white">{edu.degree}</h3>
+          <p className="mt-2 text-lg text-cyan-300">{edu.university}</p>
+          <p className="mt-1 text-sm text-slate-400">
+            {edu.location} · {edu.period}
+          </p>
+
+          <ul className="mt-6 space-y-3">
+            {edu.details.map((item) => (
+              <li key={item} className="flex gap-3 text-slate-300">
+                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-cyan-400" />
+                <span className="leading-7">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div className="mt-8 rounded-3xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
+      <h3 className="mb-6 text-2xl font-bold text-white">
+        Certifications
+      </h3>
+
+      <div className="grid gap-4 md:grid-cols-2">
+        {[
+          'Microsoft Certified: Azure Fundamentals (AZ-900)',
+          'Version Control & CI/CD Best Practices',
+        ].map((certification) => (
+          <div
+            key={certification}
+            className="rounded-2xl border border-white/10 bg-slate-950/70 p-5"
+          >
+            <p className="font-medium text-slate-200">{certification}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
