@@ -166,17 +166,166 @@ function App() {
           </div>
         </section>
 
-        {/* Skills placeholder */}
-        <section id="skills" className="bg-slate-900/50 px-6 py-24">
-          <div className="mx-auto max-w-6xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              Skills
-            </p>
-            <h2 className="text-3xl font-bold text-white md:text-4xl">
-              Technical Skills
-            </h2>
+        {/* Skills */}
+<section id="skills" className="bg-slate-900/50 px-6 py-24">
+  <div className="mx-auto max-w-6xl">
+    <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
+      Skills
+    </p>
+
+    <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
+      Technical Skills
+    </h2>
+
+    <p className="mb-12 max-w-3xl text-lg leading-8 text-slate-300">
+      A practical full-stack skill set covering backend development, frontend
+      engineering, databases, data integration, reporting automation, cloud
+      deployment, DevOps, and AI/data science workflows.
+    </p>
+
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {[
+        {
+          title: 'Backend Development',
+          skills: [
+            'C#',
+            '.NET Core',
+            'ASP.NET Core',
+            'ASP.NET MVC',
+            'RESTful APIs',
+            'Entity Framework Core',
+            'LINQ',
+            'Microservices',
+          ],
+        },
+        {
+          title: 'Frontend Development',
+          skills: [
+            'React',
+            'Angular',
+            'Next.js',
+            'Blazor',
+            'JavaScript',
+            'TypeScript',
+            'Tailwind CSS',
+            'Bootstrap',
+          ],
+        },
+        {
+          title: 'Databases',
+          skills: [
+            'SQL Server',
+            'PostgreSQL',
+            'MySQL',
+            'MongoDB',
+            'SQLite',
+            'T-SQL',
+            'Stored Procedures',
+            'Index Optimisation',
+          ],
+        },
+        {
+          title: 'Data & Reporting',
+          skills: [
+            'SSIS',
+            'SSRS',
+            'ETL Pipelines',
+            'SQL Server Agent',
+            'JSON Processing',
+            'XML Processing',
+            'CSV Processing',
+            'XSLT / XPath',
+          ],
+        },
+        {
+          title: 'Cloud & DevOps',
+          skills: [
+            'Microsoft Azure',
+            'Azure Functions',
+            'Azure SQL',
+            'Docker',
+            'Git',
+            'GitHub Actions',
+            'CI/CD Pipelines',
+            'IIS Deployment',
+          ],
+        },
+        {
+          title: 'AI & Data Science',
+          skills: [
+            'Python',
+            'Machine Learning',
+            'NLP',
+            'BERT',
+            'scikit-learn',
+            'NLTK',
+            'Pandas',
+            'NumPy',
+          ],
+        },
+        {
+          title: 'Architecture & Practices',
+          skills: [
+            'Clean Architecture',
+            'SOLID Principles',
+            'REST API Design',
+            'Unit Testing',
+            'Integration Testing',
+            'Agile/Scrum',
+            'Code Refactoring',
+            'Production Support',
+          ],
+        },
+        {
+          title: 'Research Interests',
+          skills: [
+            'Large Language Models',
+            'Trustworthy AI',
+            'AI Safety',
+            'AI Security',
+            'Adversarial Robustness',
+            'Agentic AI Systems',
+            'Scalable AI Systems',
+            'Responsible AI',
+          ],
+        },
+        {
+          title: 'Core Strengths',
+          skills: [
+            'Problem Solving',
+            'System Design',
+            'Database Optimisation',
+            'Automation',
+            'Technical Documentation',
+            'Team Collaboration',
+            'Debugging',
+            'Continuous Learning',
+          ],
+        },
+      ].map((category) => (
+        <div
+          key={category.title}
+          className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.06]"
+        >
+          <h3 className="mb-4 text-xl font-bold text-white">
+            {category.title}
+          </h3>
+
+          <div className="flex flex-wrap gap-2">
+            {category.skills.map((skill) => (
+              <span
+                key={skill}
+                className="rounded-full border border-white/10 bg-slate-950/70 px-3 py-1 text-sm text-slate-300"
+              >
+                {skill}
+              </span>
+            ))}
           </div>
-        </section>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* Contact */}
         <section id="contact" className="px-6 py-24">
