@@ -730,19 +730,6 @@ function App() {
                 </span>
               </motion.h1>
 
-              <motion.p
-                variants={fadeUp}
-                className="mt-7 max-w-full text-base leading-8 text-slate-300 sm:max-w-2xl sm:text-lg"
-              >
-                Hi, I’m{" "}
-                <span className="font-semibold text-white">Razny Razeek</span> a
-                Full-Stack Software/Data Engineer building production ready web
-                applications, REST APIs, ETL pipelines, reporting automation,
-                and cloud-supported systems. Holds an MSc in Data Science and is
-                preparing for PhD research focused on Artificial Intelligence,
-                Natural Language Processing, Large Language Models, Deep
-                Learning, and Trustworthy Secure AI.
-              </motion.p>
               <div className="mt-8 max-w-2xl overflow-hidden rounded-3xl border border-cyan-400/20 bg-slate-950/85 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl">
                 <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.03] px-5 py-3">
                   <div className="flex items-center gap-2">
@@ -799,6 +786,19 @@ function App() {
                   </div>
                 </div>
               </div>
+              <motion.p
+                variants={fadeUp}
+                className="mt-7 max-w-full text-base leading-8 text-slate-300 sm:max-w-2xl sm:text-lg"
+              >
+                Hi, I’m{" "}
+                <span className="font-semibold text-white">Razny Razeek</span> a
+                Full-Stack Software/Data Engineer building production ready web
+                applications, REST APIs, ETL pipelines, reporting automation,
+                and cloud-supported systems. Holds an MSc in Data Science and is
+                preparing for PhD research focused on Artificial Intelligence,
+                Natural Language Processing, Large Language Models, Deep
+                Learning, and Trustworthy Secure AI.
+              </motion.p>
               {/* <motion.div
                 variants={fadeUp}
                 className="mt-9 flex w-full flex-col gap-4 sm:flex-row sm:flex-wrap"
