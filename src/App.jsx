@@ -743,8 +743,63 @@ function App() {
                 Natural Language Processing, Large Language Models, Deep
                 Learning, and Trustworthy Secure AI.
               </motion.p>
+              <div className="mt-8 max-w-2xl overflow-hidden rounded-3xl border border-cyan-400/20 bg-slate-950/85 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl">
+                <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.03] px-5 py-3">
+                  <div className="flex items-center gap-2">
+                    <span className="h-3 w-3 rounded-full bg-red-400" />
+                    <span className="h-3 w-3 rounded-full bg-yellow-400" />
+                    <span className="h-3 w-3 rounded-full bg-green-400" />
+                  </div>
 
-              <motion.div
+                  <p className="text-xs font-semibold text-slate-500">
+                    razny.system.profile
+                  </p>
+                </div>
+
+                <div className="space-y-4 p-5 font-mono text-sm">
+                  <div>
+                    <p className="text-slate-500">
+                      <span className="text-cyan-300">~/portfolio</span> $
+                      whoami
+                    </p>
+                    <p className="mt-1 text-white">Razny Razeek</p>
+                  </div>
+
+                  <div>
+                    <p className="text-slate-500">
+                      <span className="text-cyan-300">~/portfolio</span> $
+                      get-role
+                    </p>
+                    <p className="mt-1 text-cyan-100">
+                      Full-Stack Software Engineer · Data Systems · AI Research
+                      Direction
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-slate-500">
+                      <span className="text-cyan-300">~/portfolio</span> $
+                      list-stack
+                    </p>
+                    <p className="mt-1 text-slate-300">
+                      .NET Core / React / Angular / SQL / ETL / Azure / Python /
+                      Machine Learning / Data Science / Data Analysis
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-slate-500">
+                      <span className="text-cyan-300">~/portfolio</span> $
+                      availability
+                    </p>
+                    <p className="mt-1 text-emerald-300">
+                      Open to software, data, AI research and PhD conversations
+                      <span className="ml-1 inline-block h-4 w-2 animate-pulse bg-emerald-300 align-middle" />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* <motion.div
                 variants={fadeUp}
                 className="mt-9 flex w-full flex-col gap-4 sm:flex-row sm:flex-wrap"
               >
@@ -777,7 +832,7 @@ function App() {
                   <ExternalLink size={18} />
                   LinkedIn
                 </a>
-              </motion.div>
+              </motion.div> */}
 
               {/* <motion.div
                 variants={fadeUp}
@@ -2958,259 +3013,269 @@ function App() {
         </section>
 
         <section
-  id="contact"
-  className="relative overflow-hidden bg-slate-950 px-4 py-24 sm:px-6"
->
-  <div className="absolute inset-0 -z-20 bg-slate-950" />
-  <div className="absolute inset-0 -z-10 grid-bg opacity-35" />
+          id="contact"
+          className="relative overflow-hidden bg-slate-950 px-4 py-24 sm:px-6"
+        >
+          <div className="absolute inset-0 -z-20 bg-slate-950" />
+          <div className="absolute inset-0 -z-10 grid-bg opacity-35" />
 
-  <div className="absolute left-[-12rem] top-20 -z-10 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
-  <div className="absolute bottom-10 right-[-12rem] -z-10 h-96 w-96 rounded-full bg-violet-500/10 blur-3xl" />
+          <div className="absolute left-[-12rem] top-20 -z-10 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
+          <div className="absolute bottom-10 right-[-12rem] -z-10 h-96 w-96 rounded-full bg-violet-500/10 blur-3xl" />
 
-  <div className="mx-auto max-w-7xl">
-    <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-[1px] shadow-2xl shadow-slate-950/40">
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-blue-500/10 to-violet-500/20" />
+          <div className="mx-auto max-w-7xl">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-[1px] shadow-2xl shadow-slate-950/40">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-blue-500/10 to-violet-500/20" />
 
-      <div className="relative overflow-hidden rounded-[1.95rem] bg-slate-950/92 p-6 backdrop-blur-xl sm:p-8 lg:p-10">
-        <div className="absolute right-[-8rem] top-[-8rem] h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
-        <div className="absolute bottom-[-8rem] left-[-8rem] h-72 w-72 rounded-full bg-violet-500/10 blur-3xl" />
+              <div className="relative overflow-hidden rounded-[1.95rem] bg-slate-950/92 p-6 backdrop-blur-xl sm:p-8 lg:p-10">
+                <div className="absolute right-[-8rem] top-[-8rem] h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+                <div className="absolute bottom-[-8rem] left-[-8rem] h-72 w-72 rounded-full bg-violet-500/10 blur-3xl" />
 
-        <div className="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div>
-            <p className="mb-5 inline-flex rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.28em] text-cyan-300">
-              Contact Gateway
-            </p>
-
-            <h2 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
-              Open for{" "}
-              <span className="text-gradient">
-                software, data & AI opportunities
-              </span>
-            </h2>
-
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-              I am available for software engineering roles, data
-              engineering projects, AI and PhD research,
-              technical collaborations, and professional networking.
-            </p>
-
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {[
-                {
-                  title: "Software Engineering",
-                  text: "Full-stack roles, APIs, production systems, web platforms.",
-                  icon: Code2,
-                  tone: "text-cyan-300",
-                  bg: "bg-cyan-400/10",
-                  border: "border-cyan-400/20",
-                },
-                {
-                  title: "Data Engineering",
-                  text: "SQL, ETL, SSIS, SSRS, reporting automation, pipelines.",
-                  icon: Database,
-                  tone: "text-blue-300",
-                  bg: "bg-blue-400/10",
-                  border: "border-blue-400/20",
-                },
-                {
-                  title: "AI Research",
-                  text: "NLP, LLMs, Deep Learning, Machine Learning, PhD direction.",
-                  icon: Brain,
-                  tone: "text-violet-300",
-                  bg: "bg-violet-400/10",
-                  border: "border-violet-400/20",
-                },
-                {
-                  title: "Collaboration",
-                  text: "Technical discussions, research ideas, networking.",
-                  icon: MessageSquare,
-                  tone: "text-emerald-300",
-                  bg: "bg-emerald-400/10",
-                  border: "border-emerald-400/20",
-                },
-              ].map((item) => {
-                const Icon = item.icon
-
-                return (
-                  <div
-                    key={item.title}
-                    className={`rounded-3xl border ${item.border} bg-white/[0.025] p-4 backdrop-blur transition hover:-translate-y-1 hover:bg-white/[0.045]`}
-                  >
-                    <div
-                      className={`mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border ${item.border} ${item.bg} ${item.tone}`}
-                    >
-                      <Icon size={20} />
-                    </div>
-
-                    <h3 className="font-black text-white">{item.title}</h3>
-
-                    <p className="mt-2 text-sm leading-6 text-slate-400">
-                      {item.text}
+                <div className="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+                  <div>
+                    <p className="mb-5 inline-flex rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.28em] text-cyan-300">
+                      Contact Gateway
                     </p>
+
+                    <h2 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
+                      Open for{" "}
+                      <span className="text-gradient">
+                        software, data & AI opportunities
+                      </span>
+                    </h2>
+
+                    <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+                      I am available for software engineering roles, data
+                      engineering projects, AI and PhD research, technical
+                      collaborations, and professional networking.
+                    </p>
+
+                    <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                      {[
+                        {
+                          title: "Software Engineering",
+                          text: "Full-stack roles, APIs, production systems, web platforms.",
+                          icon: Code2,
+                          tone: "text-cyan-300",
+                          bg: "bg-cyan-400/10",
+                          border: "border-cyan-400/20",
+                        },
+                        {
+                          title: "Data Engineering",
+                          text: "SQL, ETL, SSIS, SSRS, reporting automation, pipelines.",
+                          icon: Database,
+                          tone: "text-blue-300",
+                          bg: "bg-blue-400/10",
+                          border: "border-blue-400/20",
+                        },
+                        {
+                          title: "AI Research",
+                          text: "NLP, LLMs, Deep Learning, Machine Learning, PhD direction.",
+                          icon: Brain,
+                          tone: "text-violet-300",
+                          bg: "bg-violet-400/10",
+                          border: "border-violet-400/20",
+                        },
+                        {
+                          title: "Collaboration",
+                          text: "Technical discussions, research ideas, networking.",
+                          icon: MessageSquare,
+                          tone: "text-emerald-300",
+                          bg: "bg-emerald-400/10",
+                          border: "border-emerald-400/20",
+                        },
+                      ].map((item) => {
+                        const Icon = item.icon;
+
+                        return (
+                          <div
+                            key={item.title}
+                            className={`rounded-3xl border ${item.border} bg-white/[0.025] p-4 backdrop-blur transition hover:-translate-y-1 hover:bg-white/[0.045]`}
+                          >
+                            <div
+                              className={`mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border ${item.border} ${item.bg} ${item.tone}`}
+                            >
+                              <Icon size={20} />
+                            </div>
+
+                            <h3 className="font-black text-white">
+                              {item.title}
+                            </h3>
+
+                            <p className="mt-2 text-sm leading-6 text-slate-400">
+                              {item.text}
+                            </p>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                )
-              })}
-            </div>
-          </div>
 
-          <div className="space-y-4">
-            <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-5 backdrop-blur-xl">
-              <div className="mb-5 flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[0.28em] text-cyan-300">
-                    Direct Channels
-                  </p>
-                  <h3 className="mt-2 text-2xl font-black text-white">
-                    Reach me quickly
-                  </h3>
-                </div>
-
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-300">
-                  <Globe2 size={22} />
-                </div>
-              </div>
-
-              <div className="grid gap-4">
-                {[
-                  {
-                    label: "Email Channel",
-                    value: "mraznyrazeek@gmail.com",
-                    href: "mailto:mraznyrazeek@gmail.com",
-                    icon: Mail,
-                    tone: "text-cyan-300",
-                    bg: "bg-cyan-400/10",
-                    border: "border-cyan-400/20",
-                  },
-                  {
-                    label: "Professional Network",
-                    value: "linkedin.com/in/raznyrazeek",
-                    href: "https://linkedin.com/in/raznyrazeek",
-                    icon: ExternalLink,
-                    tone: "text-blue-300",
-                    bg: "bg-blue-400/10",
-                    border: "border-blue-400/20",
-                  },
-                  {
-                    label: "Current Base",
-                    value: "Colchester, Essex, United Kingdom",
-                    href: null,
-                    icon: MapPin,
-                    tone: "text-violet-300",
-                    bg: "bg-violet-400/10",
-                    border: "border-violet-400/20",
-                  },
-                ].map((item) => {
-                  const Icon = item.icon
-
-                  const content = (
-                    <div
-                      className={`group rounded-3xl border ${item.border} bg-slate-950/70 p-4 transition hover:-translate-y-1 hover:bg-slate-900/80`}
-                    >
-                      <div className="flex items-center gap-4">
-                        <div
-                          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${item.border} ${item.bg} ${item.tone}`}
-                        >
-                          <Icon size={20} />
+                  <div className="space-y-4">
+                    <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-5 backdrop-blur-xl">
+                      <div className="mb-5 flex items-center justify-between gap-4">
+                        <div>
+                          <p className="text-xs font-black uppercase tracking-[0.28em] text-cyan-300">
+                            Direct Channels
+                          </p>
+                          <h3 className="mt-2 text-2xl font-black text-white">
+                            Reach me quickly
+                          </h3>
                         </div>
 
-                        <div className="min-w-0 flex-1">
-                          <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-500">
-                            {item.label}
-                          </p>
-
-                          <p className="mt-1 break-words text-base font-bold text-white">
-                            {item.value}
-                          </p>
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-300">
+                          <Globe2 size={22} />
                         </div>
+                      </div>
 
-                        {item.href && (
-                          <ExternalLink
-                            size={17}
-                            className="shrink-0 text-slate-500 transition group-hover:text-cyan-300"
-                          />
-                        )}
+                      <div className="grid gap-4">
+                        {[
+                          {
+                            label: "Email Channel",
+                            value: "mraznyrazeek@gmail.com",
+                            href: "mailto:mraznyrazeek@gmail.com",
+                            icon: Mail,
+                            tone: "text-cyan-300",
+                            bg: "bg-cyan-400/10",
+                            border: "border-cyan-400/20",
+                          },
+                          {
+                            label: "Professional Network",
+                            value: "linkedin.com/in/raznyrazeek",
+                            href: "https://linkedin.com/in/raznyrazeek",
+                            icon: ExternalLink,
+                            tone: "text-blue-300",
+                            bg: "bg-blue-400/10",
+                            border: "border-blue-400/20",
+                          },
+                          {
+                            label: "Current Base",
+                            value: "Colchester, Essex, United Kingdom",
+                            href: null,
+                            icon: MapPin,
+                            tone: "text-violet-300",
+                            bg: "bg-violet-400/10",
+                            border: "border-violet-400/20",
+                          },
+                        ].map((item) => {
+                          const Icon = item.icon;
+
+                          const content = (
+                            <div
+                              className={`group rounded-3xl border ${item.border} bg-slate-950/70 p-4 transition hover:-translate-y-1 hover:bg-slate-900/80`}
+                            >
+                              <div className="flex items-center gap-4">
+                                <div
+                                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${item.border} ${item.bg} ${item.tone}`}
+                                >
+                                  <Icon size={20} />
+                                </div>
+
+                                <div className="min-w-0 flex-1">
+                                  <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-500">
+                                    {item.label}
+                                  </p>
+
+                                  <p className="mt-1 break-words text-base font-bold text-white">
+                                    {item.value}
+                                  </p>
+                                </div>
+
+                                {item.href && (
+                                  <ExternalLink
+                                    size={17}
+                                    className="shrink-0 text-slate-500 transition group-hover:text-cyan-300"
+                                  />
+                                )}
+                              </div>
+                            </div>
+                          );
+
+                          return item.href ? (
+                            <a
+                              key={item.label}
+                              href={item.href}
+                              target={
+                                item.href.startsWith("http")
+                                  ? "_blank"
+                                  : undefined
+                              }
+                              rel={
+                                item.href.startsWith("http")
+                                  ? "noreferrer"
+                                  : undefined
+                              }
+                            >
+                              {content}
+                            </a>
+                          ) : (
+                            <div key={item.label}>{content}</div>
+                          );
+                        })}
                       </div>
                     </div>
-                  )
 
-                  return item.href ? (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      target={item.href.startsWith("http") ? "_blank" : undefined}
-                      rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                    >
-                      {content}
-                    </a>
-                  ) : (
-                    <div key={item.label}>{content}</div>
-                  )
-                })}
-              </div>
-            </div>
+                    <div className="rounded-[1.75rem] border border-emerald-400/20 bg-emerald-400/[0.045] p-5 backdrop-blur-xl">
+                      <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                        <div className="flex items-start gap-4">
+                          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-emerald-400/20 bg-emerald-400/10 text-emerald-300">
+                            <Rocket size={20} />
+                          </div>
 
-            <div className="rounded-[1.75rem] border border-emerald-400/20 bg-emerald-400/[0.045] p-5 backdrop-blur-xl">
-              <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-emerald-400/20 bg-emerald-400/10 text-emerald-300">
-                    <Rocket size={20} />
-                  </div>
+                          <div>
+                            <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-300">
+                              Availability
+                            </p>
 
-                  <div>
-                    <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-300">
-                      Availability
-                    </p>
+                            <h3 className="mt-1 font-black text-white">
+                              Open to meaningful technical opportunities
+                            </h3>
+                          </div>
+                        </div>
 
-                    <h3 className="mt-1 font-black text-white">
-                      Open to meaningful technical opportunities
-                    </h3>
+                        <a
+                          href="mailto:mraznyrazeek@gmail.com"
+                          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-5 py-3 text-sm font-bold text-emerald-200 transition hover:bg-emerald-400 hover:text-slate-950"
+                        >
+                          Start Conversation
+                          <ArrowRight size={16} />
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="grid gap-4 sm:grid-cols-3">
+                      <a
+                        href="mailto:mraznyrazeek@gmail.com"
+                        className="group inline-flex min-h-[96px] flex-col items-center justify-center gap-3 rounded-3xl border border-cyan-400/20 bg-cyan-400/10 p-5 text-center font-bold text-cyan-100 shadow-[0_18px_45px_rgba(6,182,212,0.08)] backdrop-blur transition hover:-translate-y-1 hover:bg-cyan-400 hover:text-slate-950"
+                      >
+                        <Send size={22} />
+                        <span>Email Me</span>
+                      </a>
+
+                      <a
+                        href="https://linkedin.com/in/raznyrazeek"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group inline-flex min-h-[96px] flex-col items-center justify-center gap-3 rounded-3xl border border-blue-400/20 bg-blue-400/10 p-5 text-center font-bold text-blue-100 shadow-[0_18px_45px_rgba(59,130,246,0.08)] backdrop-blur transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/10 hover:text-cyan-200"
+                      >
+                        <ExternalLink size={22} />
+                        <span>LinkedIn</span>
+                      </a>
+
+                      <a
+                        href="/documents/Razny-Razeek-CV.pdf"
+                        download
+                        className="group inline-flex min-h-[96px] flex-col items-center justify-center gap-3 rounded-3xl border border-violet-400/20 bg-violet-400/10 p-5 text-center font-bold text-violet-100 shadow-[0_18px_45px_rgba(139,92,246,0.08)] backdrop-blur transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/10 hover:text-cyan-200"
+                      >
+                        <Download size={22} />
+                        <span>Download CV</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
-
-                <a
-                  href="mailto:mraznyrazeek@gmail.com"
-                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-5 py-3 text-sm font-bold text-emerald-200 transition hover:bg-emerald-400 hover:text-slate-950"
-                >
-                  Start Conversation
-                  <ArrowRight size={16} />
-                </a>
               </div>
             </div>
-
-            <div className="grid gap-4 sm:grid-cols-3">
-              <a
-                href="mailto:mraznyrazeek@gmail.com"
-                className="group inline-flex min-h-[96px] flex-col items-center justify-center gap-3 rounded-3xl border border-cyan-400/20 bg-cyan-400/10 p-5 text-center font-bold text-cyan-100 shadow-[0_18px_45px_rgba(6,182,212,0.08)] backdrop-blur transition hover:-translate-y-1 hover:bg-cyan-400 hover:text-slate-950"
-              >
-                <Send size={22} />
-                <span>Email Me</span>
-              </a>
-
-              <a
-                href="https://linkedin.com/in/raznyrazeek"
-                target="_blank"
-                rel="noreferrer"
-                className="group inline-flex min-h-[96px] flex-col items-center justify-center gap-3 rounded-3xl border border-blue-400/20 bg-blue-400/10 p-5 text-center font-bold text-blue-100 shadow-[0_18px_45px_rgba(59,130,246,0.08)] backdrop-blur transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/10 hover:text-cyan-200"
-              >
-                <ExternalLink size={22} />
-                <span>LinkedIn</span>
-              </a>
-
-              <a
-                href="/documents/Razny-Razeek-CV.pdf"
-                download
-                className="group inline-flex min-h-[96px] flex-col items-center justify-center gap-3 rounded-3xl border border-violet-400/20 bg-violet-400/10 p-5 text-center font-bold text-violet-100 shadow-[0_18px_45px_rgba(139,92,246,0.08)] backdrop-blur transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/10 hover:text-cyan-200"
-              >
-                <Download size={22} />
-                <span>Download CV</span>
-              </a>
-            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        </section>
       </main>
 
       <footer className="border-t border-white/10 px-6 py-8">
