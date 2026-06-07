@@ -78,29 +78,36 @@ const heroStats = [
 const orbitGroups = [
   {
     name: "AI",
-    radius: 175,
-    mobileRadius: 108,
-    duration: 22,
+    radius: 185,
+    mobileRadius: 118,
+    duration: 24,
     reverse: false,
     items: [
       {
-        label: "LLMs",
-        shortLabel: "LLMs",
-        angle: 20,
+        label: "Python",
+        shortLabel: "Python",
+        angle: 0,
+        className:
+          "border-violet-400/40 bg-violet-500/20 text-violet-100 shadow-violet-950/40",
+      },
+      {
+        label: "Machine Learning",
+        shortLabel: "ML",
+        angle: 60,
+        className:
+          "border-violet-400/40 bg-violet-500/20 text-violet-100 shadow-violet-950/40",
+      },
+      {
+        label: "Data Science",
+        shortLabel: "DS",
+        angle: 120,
         className:
           "border-violet-400/40 bg-violet-500/20 text-violet-100 shadow-violet-950/40",
       },
       {
         label: "NLP",
         shortLabel: "NLP",
-        angle: 145,
-        className:
-          "border-violet-400/40 bg-violet-500/20 text-violet-100 shadow-violet-950/40",
-      },
-      {
-        label: "AI Safety",
-        shortLabel: "Safety",
-        angle: 265,
+        angle: 180,
         className:
           "border-violet-400/40 bg-violet-500/20 text-violet-100 shadow-violet-950/40",
       },
@@ -108,9 +115,9 @@ const orbitGroups = [
   },
   {
     name: "Engineering",
-    radius: 130,
-    mobileRadius: 78,
-    duration: 18,
+    radius: 140,
+    mobileRadius: 88,
+    duration: 19,
     reverse: true,
     items: [
       {
@@ -123,6 +130,13 @@ const orbitGroups = [
       {
         label: "React",
         shortLabel: "React",
+        angle: 60,
+        className:
+          "border-cyan-400/40 bg-cyan-500/15 text-cyan-100 shadow-cyan-950/40",
+      },
+      {
+        label: "Angular",
+        shortLabel: "Angular",
         angle: 120,
         className:
           "border-cyan-400/40 bg-cyan-500/15 text-cyan-100 shadow-cyan-950/40",
@@ -130,7 +144,21 @@ const orbitGroups = [
       {
         label: "REST APIs",
         shortLabel: "APIs",
+        angle: 180,
+        className:
+          "border-cyan-400/40 bg-cyan-500/15 text-cyan-100 shadow-cyan-950/40",
+      },
+      {
+        label: "Azure",
+        shortLabel: "Azure",
         angle: 240,
+        className:
+          "border-cyan-400/40 bg-cyan-500/15 text-cyan-100 shadow-cyan-950/40",
+      },
+      {
+        label: "CI/CD & DevOps",
+        shortLabel: "CI/CD",
+        angle: 300,
         className:
           "border-cyan-400/40 bg-cyan-500/15 text-cyan-100 shadow-cyan-950/40",
       },
@@ -138,29 +166,36 @@ const orbitGroups = [
   },
   {
     name: "Data",
-    radius: 92,
-    mobileRadius: 55,
-    duration: 15,
+    radius: 100,
+    mobileRadius: 64,
+    duration: 16,
     reverse: false,
     items: [
       {
-        label: "SQL Server",
+        label: "SQL",
         shortLabel: "SQL",
-        angle: 40,
+        angle: 0,
         className:
           "border-blue-400/40 bg-blue-500/15 text-blue-100 shadow-blue-950/40",
       },
       {
-        label: "ETL",
-        shortLabel: "ETL",
-        angle: 180,
+        label: "NoSQL",
+        shortLabel: "NoSQL",
+        angle: 60,
         className:
           "border-blue-400/40 bg-blue-500/15 text-blue-100 shadow-blue-950/40",
       },
       {
-        label: "SSRS",
-        shortLabel: "SSRS",
-        angle: 300,
+        label: "SSRS & SSIS",
+        shortLabel: "SSRS/SSIS",
+        angle: 120,
+        className:
+          "border-blue-400/40 bg-blue-500/15 text-blue-100 shadow-blue-950/40",
+      },
+      {
+        label: "ETL & Data Pipelines",
+        shortLabel: "Pipes",
+        angle: 240,
         className:
           "border-blue-400/40 bg-blue-500/15 text-blue-100 shadow-blue-950/40",
       },
@@ -321,8 +356,6 @@ function WeatherGreeting() {
           ? "text-sky-200"
           : "text-cyan-200";
 
-  
-
   return (
     <div className="relative inline-flex max-w-[190px] sm:max-w-none">
       <div className="relative overflow-hidden rounded-full border border-white/10 bg-slate-950/80 p-[1px] shadow-[0_10px_30px_rgba(6,182,212,0.12)] backdrop-blur-xl">
@@ -381,7 +414,7 @@ function OrbitVisual() {
           </div>
         </div>
 
-        <p className="mt-3 text-base font-bold text-white sm:mt-4 sm:text-xl">
+        <p className="mt-3 text-base font-bold text-white sm:mt-1 sm:text-xl">
           Razny Razeek
         </p>
 
@@ -446,7 +479,7 @@ function IdentityCard() {
     >
       <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-cyan-400/25 via-blue-500/15 to-violet-500/25 blur-2xl" />
 
-      <div className="relative mx-auto w-full max-w-[340px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] p-4 shadow-2xl shadow-cyan-950/40 backdrop-blur-xl sm:max-w-[560px] sm:p-6 lg:max-w-none lg:overflow-visible">
+      <div className="relative mx-auto w-full max-w-[340px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] p-4 shadow-2xl shadow-cyan-950/40 backdrop-blur-xl sm:max-w-[560px] sm:p-6 lg:max-w-none lg:overflow-hidden">
         <div className="mb-5 flex items-center justify-between">
           <div>
             <p className="text-xs text-slate-400 sm:text-sm">
@@ -470,17 +503,17 @@ function IdentityCard() {
             {
               icon: Code2,
               title: "Engineering",
-              text: ".NET Core, React, REST APIs, Clean Architecture",
+              text: ".NET Core, React, Angular, REST APIs, Clean Architecture",
             },
             {
               icon: Database,
               title: "Data Systems",
-              text: "SQL Server, SSIS, SSRS, ETL, Reporting Automation",
+              text: "SQL, SSIS, SSRS, ETL, Data Pipeline, Reporting Automation",
             },
             {
               icon: ShieldCheck,
               title: "AI Research",
-              text: "LLMs, NLP, AI Safety, Trustworthy AI, AI Security",
+              text: "Deep Learning, LLMs, NLP, Trustworthy AI, AI Security",
             },
           ].map((item) => {
             const Icon = item.icon;
@@ -511,74 +544,77 @@ function IdentityCard() {
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-const aboutCards = [
-  {
-    icon: Code2,
-    title: "Software Engineering",
-    description:
-      "Production-grade full-stack development across .NET, React, APIs, scalable application architecture, and modern frontend systems.",
-    accent: "from-cyan-400/20 to-sky-500/20",
-    iconStyle: "text-cyan-300 border-cyan-400/20 bg-cyan-400/10",
-  },
-  {
-    icon: Database,
-    title: "Data Systems",
-    description:
-      "Strong experience with SQL Server, SSIS, SSRS, ETL pipelines, reporting automation, and data-centric performance optimisation.",
-    accent: "from-blue-400/20 to-indigo-500/20",
-    iconStyle: "text-blue-300 border-blue-400/20 bg-blue-400/10",
-  },
-  {
-    icon: Brain,
-    title: "AI Research Direction",
-    description:
-      "Focused on AI safety, trustworthy AI, LLMs, NLP, and real-world intelligent systems grounded in engineering discipline.",
-    accent: "from-violet-400/20 to-fuchsia-500/20",
-    iconStyle: "text-violet-300 border-violet-400/20 bg-violet-400/10",
-  },
-]
+  const aboutCards = [
+    {
+      icon: Code2,
+      title: "Software Engineering",
+      description:
+        "Production-grade full-stack development across .NET, React, Angular, Next.js, APIs, scalable application architecture, and modern frontend systems.",
+      accent: "from-cyan-400/20 to-sky-500/20",
+      iconStyle: "text-cyan-300 border-cyan-400/20 bg-cyan-400/10",
+    },
+    {
+      icon: Database,
+      title: "Data Systems",
+      description:
+        "Strong experience with SQL, SSIS, SSRS, ETL & Data pipelines, reporting automation, and data centric performance optimisation.",
+      accent: "from-blue-400/20 to-indigo-500/20",
+      iconStyle: "text-blue-300 border-blue-400/20 bg-blue-400/10",
+    },
+    {
+      icon: Brain,
+      title: "AI Research Direction",
+      description:
+        "Focused on AI safety, trustworthy AI, Deep Learning, LLMs, NLP, and real world intelligent systems grounded in engineering discipline.",
+      accent: "from-violet-400/20 to-fuchsia-500/20",
+      iconStyle: "text-violet-300 border-violet-400/20 bg-violet-400/10",
+    },
+  ];
 
-const aboutStats = [
-  {
-    value: "4+",
-    label: "Years Experience",
-    note: "Commercial software delivery",
-  },
-  {
-    value: "70%",
-    label: "Reporting Automation",
-    note: "Operational efficiency gains",
-  },
-  {
-    value: "50%",
-    label: "DB Performance Gain",
-    note: "Query and indexing optimisation",
-  },
-  {
-    value: "AI",
-    label: "Research Track",
-    note: "Safety • NLP • LLMs",
-  },
-]
+  const aboutStats = [
+    {
+      value: "4+",
+      label: "Years Experience",
+      note: "Commercial software delivery",
+    },
+    {
+      value: "70%",
+      label: "Reporting Automation",
+      note: "Operational efficiency gains",
+    },
+    {
+      value: "50%",
+      label: "DB Performance Gain",
+      note: "Query and indexing optimisation",
+    },
+    {
+      value: "AI",
+      label: "Advance Research Track",
+      note: "Deep Learning • NLP • LLMs • Trustworthy AI",
+    },
+  ];
 
-const capabilityTags = [
-  "C#",
-  ".NET Core",
-  "ASP.NET Core",
-  "React",
-  "Angular",
-  "SQL Server",
-  "SSIS",
-  "SSRS",
-  "Azure",
-  "Docker",
-  "GitHub Actions",
-  "CI/CD",
-  "NLP",
-  "LLMs",
-  "AI Safety",
-  "Trustworthy AI",
-]
+  const capabilityTags = [
+    "C#",
+    ".NET Core",
+    "ASP.NET Core",
+    "React",
+    "Angular",
+    "Next.js",
+    "NoSQL",
+    "SQL",
+    "SSIS",
+    "SSRS",
+    "Azure",
+    "Docker",
+    "GitHub Actions",
+    "CI/CD",
+    "Python",
+    "Scikit-Learn",
+    "Statistical Modeling",
+    "Machine Learning",
+    "NLP",
+  ];
   return (
     <div className="min-h-screen overflow-x-hidden bg-slate-950 text-slate-100">
       <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-slate-950/80 backdrop-blur">
@@ -644,7 +680,7 @@ const capabilityTags = [
         )}
       </header>
 
-      <main>
+      <main className="overflow-x-hidden">
         <section
           id="home"
           className="relative overflow-x-hidden px-4 pb-20 pt-32 sm:px-6 lg:flex lg:min-h-screen lg:items-center lg:pb-0 lg:pt-28"
@@ -679,8 +715,8 @@ const capabilityTags = [
               >
                 <Sparkles size={16} className="shrink-0" />
                 <span className="truncate">
-                  Full-Stack Software Engineer · MSc Data Science · AI Research
-                  Direction
+                  Full-Stack Software Engineer · MSc Data Science · AI & Machine
+                  Learning
                 </span>
               </motion.div>
 
@@ -699,12 +735,13 @@ const capabilityTags = [
                 className="mt-7 max-w-full text-base leading-8 text-slate-300 sm:max-w-2xl sm:text-lg"
               >
                 Hi, I’m{" "}
-                <span className="font-semibold text-white">Razny Razeek</span> —
-                a Full-Stack Software Engineer with 4+ years of experience
-                building production-ready web applications, REST APIs, ETL
-                pipelines, reporting automation, and cloud-supported systems. I
-                also hold an MSc in Data Science and I am preparing for PhD
-                research in AI, NLP, LLMs, AI Safety, and Trustworthy AI.
+                <span className="font-semibold text-white">Razny Razeek</span> a
+                Full-Stack Software/Data Engineer building production ready web
+                applications, REST APIs, ETL pipelines, reporting automation,
+                and cloud-supported systems. Holds an MSc in Data Science and is
+                preparing for PhD research focused on Artificial Intelligence,
+                Natural Language Processing, Large Language Models, Deep
+                Learning, and Trustworthy Secure AI.
               </motion.p>
 
               <motion.div
@@ -742,7 +779,7 @@ const capabilityTags = [
                 </a>
               </motion.div>
 
-              <motion.div
+              {/* <motion.div
                 variants={fadeUp}
                 className="mt-10 grid max-w-full grid-cols-1 gap-3 sm:max-w-2xl sm:grid-cols-3"
               >
@@ -759,7 +796,7 @@ const capabilityTags = [
                     </p>
                   </div>
                 ))}
-              </motion.div>
+              </motion.div> */}
             </motion.div>
 
             <IdentityCard />
@@ -767,166 +804,251 @@ const capabilityTags = [
         </section>
 
         <section
-  id="about"
-  className="relative overflow-hidden border-t border-white/10 px-6 py-24 sm:px-8 lg:px-10"
->
-  <div className="pointer-events-none absolute inset-0">
-    <div className="absolute left-0 top-16 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
-    <div className="absolute right-0 top-24 h-80 w-80 rounded-full bg-violet-500/10 blur-3xl" />
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.06),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.08),transparent_28%)]" />
-  </div>
-
-  <div className="relative mx-auto max-w-7xl">
-    <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-      <div className="max-w-3xl">
-        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2">
-          <Sparkles size={14} className="text-cyan-300" />
-          <span className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">
-            About Me
-          </span>
-        </div>
-
-        <h2 className="max-w-5xl text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-          Engineering
-          <span className="bg-gradient-to-r from-cyan-300 via-blue-300 to-violet-300 bg-clip-text text-transparent">
-            {" "}
-            scalable systems
-          </span>
-          , building
-          <span className="bg-gradient-to-r from-violet-300 via-fuchsia-300 to-cyan-300 bg-clip-text text-transparent">
-            {" "}
-            data intelligence
-          </span>
-          , and exploring
-          <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-300 bg-clip-text text-transparent">
-            {" "}
-            trustworthy AI
-          </span>
-          .
-        </h2>
-      </div>
-
-      <div className="max-w-xl rounded-3xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl">
-        <div className="mb-3 flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-400/20 bg-emerald-400/10">
-            <BadgeCheck size={18} className="text-emerald-300" />
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-white">Current Profile</p>
-            <p className="text-xs text-slate-400">
-              Full-Stack Engineer • Data Systems • AI Research Direction
-            </p>
-          </div>
-        </div>
-
-        <p className="text-sm leading-7 text-slate-300">
-          I design and build production-ready platforms across software
-          engineering, data workflows, and automation systems, while extending
-          my direction into AI, NLP, LLMs, AI safety, and trustworthy AI.
-        </p>
-      </div>
-    </div>
-
-    <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-      <div className="space-y-8">
-        <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:p-8">
-          <div className="mb-5 flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10">
-              <ShieldCheck size={20} className="text-cyan-300" />
-            </div>
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300">
-                System Profile
-              </p>
-              <p className="text-xs text-slate-400">
-                Senior-level engineering mindset with strong technical depth
-              </p>
-            </div>
+          id="about"
+          className="relative overflow-hidden border-t border-white/10 px-6 py-24 sm:px-8 lg:px-10"
+        >
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute left-0 top-16 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
+            <div className="absolute right-0 top-24 h-80 w-80 rounded-full bg-violet-500/10 blur-3xl" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.06),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.08),transparent_28%)]" />
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            <p className="text-lg leading-9 text-slate-300">
-              I am a Full-Stack Software Engineer with over four years of
-              commercial experience designing, developing, and maintaining
-              scalable web applications, REST APIs, ETL pipelines, reporting
-              automation, and cloud-supported systems.
-            </p>
-
-            <p className="text-lg leading-9 text-slate-300">
-              Alongside my software engineering background, I hold an MSc in
-              Data Science and a BEng (Hons) in Software Engineering. My
-              research direction focuses on AI, NLP, Large Language Models, AI
-              Safety, AI Security, and scalable trustworthy AI systems.
-            </p>
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            {capabilityTags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-white/10 bg-slate-900/80 px-4 py-2 text-sm font-medium text-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {aboutStats.map((stat) => (
-            <div
-              key={stat.label}
-              className="group rounded-[26px] border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/20 hover:bg-white/[0.05]"
-            >
-              <div className="mb-4 h-[2px] w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400" />
-              <div className="text-4xl font-black tracking-tight text-cyan-300">
-                {stat.value}
-              </div>
-              <p className="mt-2 text-base font-semibold text-white">
-                {stat.label}
-              </p>
-              <p className="mt-1 text-sm text-slate-400">{stat.note}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="space-y-5">
-        {aboutCards.map((item) => {
-          const Icon = item.icon
-
-          return (
-            <div
-              key={item.title}
-              className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/20"
-            >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${item.accent} opacity-40`}
-              />
-              <div className="relative">
-                <div
-                  className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${item.iconStyle}`}
-                >
-                  <Icon size={20} />
+          <div className="relative mx-auto max-w-7xl">
+            <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-3xl">
+                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2">
+                  <Sparkles size={14} className="text-cyan-300" />
+                  <span className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">
+                    About Me
+                  </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                <p className="mt-3 leading-7 text-slate-300">
-                  {item.description}
+                <h2 className="max-w-5xl text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                  Engineering
+                  <span className="bg-gradient-to-r from-cyan-300 via-blue-300 to-violet-300 bg-clip-text text-transparent">
+                    {" "}
+                    scalable systems
+                  </span>
+                  , building
+                  <span className="bg-gradient-to-r from-violet-300 via-fuchsia-300 to-cyan-300 bg-clip-text text-transparent">
+                    {" "}
+                    data intelligence
+                  </span>
+                  , and working towards
+                  <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-300 bg-clip-text text-transparent">
+                    {" "}
+                    trustworthy AI
+                  </span>
+                  .
+                </h2>
+              </div>
+
+              {/* <div className="max-w-xl rounded-3xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl">
+                <div className="mb-3 flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-400/20 bg-emerald-400/10">
+                    <BadgeCheck size={18} className="text-emerald-300" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-white">
+                      Current Profile
+                    </p>
+                    <p className="text-xs text-slate-400">
+                      Full-Stack Engineer • Data Systems • AI & Machine Learning
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-sm leading-7 text-slate-300">
+                  I design and build production-ready platforms across software
+                  engineering, data workflows, and automation systems, while
+                  extending my direction into AI, NLP, LLMs, AI safety, and
+                  trustworthy AI.
                 </p>
+              </div> */}
+            </div>
 
-                <div className="mt-5 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
-                  <span className="h-2 w-2 rounded-full bg-cyan-300" />
-                  Core capability lane
+            <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="space-y-8">
+                <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:p-8">
+                  <div className="mb-7 flex items-center gap-3">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10">
+                      <ShieldCheck size={20} className="text-cyan-300" />
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300">
+                        System Profile
+                      </p>
+                      <p className="mt-1 text-sm text-slate-400">
+                        Software engineering, data systems, and AI research
+                        direction
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 lg:grid-cols-2">
+                    <div className="rounded-3xl border border-white/10 bg-slate-950/55 p-5">
+                      <div className="mb-4 flex items-center gap-3">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-300">
+                          <Code2 size={18} />
+                        </div>
+
+                        <div>
+                          <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-300">
+                            Engineering Base
+                          </p>
+                          <p className="text-sm text-slate-500">
+                            Production software delivery
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-base leading-8 text-slate-300">
+                        I am a Full-Stack Software Engineer with over four years
+                        of commercial experience designing, developing, and
+                        maintaining scalable web and desktop applications, REST
+                        APIs, ETL pipelines, reporting automation solutions, and
+                        cloud-supported systems.
+                      </p>
+                    </div>
+
+                    <div className="rounded-3xl border border-white/10 bg-slate-950/55 p-5">
+                      <div className="mb-4 flex items-center gap-3">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-400/10 text-blue-300">
+                          <Database size={18} />
+                        </div>
+
+                        <div>
+                          <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-300">
+                            Academic Foundation
+                          </p>
+                          <p className="text-sm text-slate-500">
+                            Software + data science
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-base leading-8 text-slate-300">
+                        Alongside my industry experience, I hold an MSc in Data
+                        Science and a BEng (Hons) in Software Engineering,
+                        giving me a strong foundation in practical software
+                        development, data-driven problem solving, and
+                        research-oriented thinking.
+                      </p>
+                    </div>
+
+                    <div className="rounded-3xl border border-violet-400/15 bg-violet-400/[0.04] p-5 lg:col-span-2">
+                      <div className="mb-4 flex items-center gap-3">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-violet-400/20 bg-violet-400/10 text-violet-300">
+                          <Brain size={18} />
+                        </div>
+
+                        <div>
+                          <p className="text-xs font-black uppercase tracking-[0.22em] text-violet-300">
+                            AI Research Direction
+                          </p>
+                          <p className="text-sm text-slate-500">
+                            Deep Learning · NLP · LLMs · AI Security
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-base leading-8 text-slate-300">
+                        My current research interests focus on Deep Learning,
+                        Natural Language Processing, Large Language Models, AI
+                        Security, and scalable trustworthy AI systems. I am
+                        particularly interested in building intelligent, secure,
+                        and reliable systems that bridge real-world software
+                        engineering with advanced AI research.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 rounded-3xl border border-cyan-400/15 bg-slate-950/60 p-5">
+                    <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-300">
+                          <Sparkles size={18} />
+                        </div>
+
+                        <div>
+                          <p className="text-xs font-black uppercase tracking-[0.24em] text-cyan-300">
+                            Core Stack
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {capabilityTags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-white/10 bg-slate-900/80 px-3.5 py-2 text-xs font-semibold text-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-200"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                  {aboutStats.map((stat) => (
+                    <div
+                      key={stat.label}
+                      className="group rounded-[26px] border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/20 hover:bg-white/[0.05]"
+                    >
+                      <div className="mb-4 h-[2px] w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400" />
+                      <div className="text-4xl font-black tracking-tight text-cyan-300">
+                        {stat.value}
+                      </div>
+                      <p className="mt-2 text-base font-semibold text-white">
+                        {stat.label}
+                      </p>
+                      <p className="mt-1 text-sm text-slate-400">{stat.note}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
+
+              <div className="space-y-5">
+                {aboutCards.map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <div
+                      key={item.title}
+                      className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/20"
+                    >
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${item.accent} opacity-40`}
+                      />
+                      <div className="relative">
+                        <div
+                          className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${item.iconStyle}`}
+                        >
+                          <Icon size={20} />
+                        </div>
+
+                        <h3 className="text-xl font-bold text-white">
+                          {item.title}
+                        </h3>
+                        <p className="mt-3 leading-7 text-slate-300">
+                          {item.description}
+                        </p>
+
+                        <div className="mt-5 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
+                          <span className="h-2 w-2 rounded-full bg-cyan-300" />
+                          Core capability lane
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          )
-        })}
-      </div>
-    </div>
-  </div>
-</section>
+          </div>
+        </section>
 
         <section
           id="skills"
@@ -946,15 +1068,17 @@ const capabilityTags = [
                 </p>
 
                 <h2 className="text-4xl font-black tracking-tight text-white md:text-5xl">
-                  Senior-level stack for{" "}
-                  <span className="text-gradient">secure scalable systems</span>
+                  Developing reliable{" "}
+                  <span className="text-gradient">
+                    web, data, and cloud supported systems.
+                  </span>
                 </h2>
               </div>
 
               <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg lg:ml-auto">
-                A production-focused technical profile across backend
+                A production focused technical profile across backend
                 engineering, frontend systems, databases, cloud delivery, data
-                automation, and AI research workflows — structured like an
+                automation, and AI research workflows structured like an
                 engineering control layer.
               </p>
             </div>
@@ -963,17 +1087,17 @@ const capabilityTags = [
               {[
                 {
                   label: "Backend",
-                  value: ".NET / APIs",
+                  value: ".NET / APIs / Microservices",
                   tone: "text-cyan-300",
                 },
                 {
                   label: "Data Layer",
-                  value: "SQL / ETL",
+                  value: "SQL / ETL / Data Pipelines",
                   tone: "text-blue-300",
                 },
                 {
                   label: "AI Track",
-                  value: "NLP / LLMs",
+                  value: "Deep Learning / NLP / LLMs",
                   tone: "text-violet-300",
                 },
                 {
@@ -1087,6 +1211,7 @@ const capabilityTags = [
                     "React",
                     "Angular",
                     "Next.js",
+                    "Umbraco CMS",
                     "Blazor",
                     "JavaScript",
                     "TypeScript",
@@ -1132,6 +1257,7 @@ const capabilityTags = [
                     "Pandas",
                     "NumPy",
                     "Sentiment Analysis",
+                    "predictive modeling",
                     "Time-Series Forecasting",
                   ],
                 },
@@ -1351,6 +1477,8 @@ const capabilityTags = [
                     "React",
                     "Angular",
                     "Next.js",
+                    "Umbraco CMS",
+                    "Razor",
                     "SQL Server",
                     "SSIS",
                     "SSRS",
@@ -1372,7 +1500,7 @@ const capabilityTags = [
                       label: "APPLICATION LAYER",
                       icon: Workflow,
                       title: "Commercial Web Platforms",
-                      text: "Developed commercial web applications using React, Angular, and Next.js, improving responsiveness and user experience.",
+                      text: "Developed commercial web applications using React, Angular, Next.js, Umbraco CMS, and Razor, improving responsiveness, maintainability, and overall user experience.",
                       tone: "text-blue-300",
                       bg: "bg-blue-400/10",
                       border: "border-blue-400/20",
@@ -1404,6 +1532,15 @@ const capabilityTags = [
                       bg: "bg-sky-400/10",
                       border: "border-sky-400/20",
                     },
+                    {
+                      label: "CI/CD & DEVOPS",
+                      icon: ServerCog,
+                      title: "Cloud Deployment & Release Automation",
+                      text: "Worked with Azure DevOps, GitHub Actions, and Git-based workflows to support cloud deployments, automated builds, and reliable software releases.",
+                      tone: "text-cyan-300",
+                      bg: "bg-cyan-400/10",
+                      border: "border-cyan-400/20",
+                    },
                   ],
                 },
                 {
@@ -1429,7 +1566,8 @@ const capabilityTags = [
                     "Blazor",
                     "ASP.NET Core",
                     "JWT",
-                    "MySQL",
+                    "SQL Server",
+                    "PostgreSQL",
                     "Clean Architecture",
                     "Debugging",
                     "Refactoring",
@@ -1474,8 +1612,8 @@ const capabilityTags = [
                     {
                       label: "DATA TUNING",
                       icon: Database,
-                      title: "MySQL Performance",
-                      text: "Built and optimised MySQL queries and indexes, improving database performance by 25%.",
+                      title: "Query Performance",
+                      text: "Built and optimised SQL queries and indexes, improving database performance by 25%.",
                       tone: "text-sky-300",
                       bg: "bg-sky-400/10",
                       border: "border-sky-400/20",
@@ -1524,7 +1662,7 @@ const capabilityTags = [
                       label: "CLIENT LAYER",
                       icon: Code2,
                       title: "Responsive Frontend Delivery",
-                      text: "Built responsive frontend features using Angular, JavaScript, Bootstrap, Tailwind CSS, HTML, and CSS.",
+                      text: "Built responsive frontend features using Angular, JavaScript, Bootstrap, CSS, HTML, and CSS.",
                       tone: "text-blue-300",
                       bg: "bg-blue-400/10",
                       border: "border-blue-400/20",
@@ -1840,11 +1978,12 @@ const capabilityTags = [
                     "NumPy",
                     "NLP",
                     "Time-Series",
+                    "Predictive Modelling",
                   ],
                 },
                 {
                   id: "LAB-02",
-                  title: "Product Search & Catalog Platform",
+                  title: "Advance Product Search & Catalog Platform",
                   type: "Full-Stack Search System",
                   icon: Search,
                   accent: "from-cyan-400/30 via-blue-500/10 to-transparent",
@@ -1923,50 +2062,6 @@ const capabilityTags = [
                     "SQL Server",
                     "Authentication",
                     "REST APIs",
-                  ],
-                },
-                {
-                  id: "LAB-04",
-                  title: "Enterprise Reporting & ETL Automation",
-                  type: "Commercial Data Automation",
-                  icon: Workflow,
-                  accent: "from-emerald-400/25 via-cyan-500/10 to-transparent",
-                  iconWrap:
-                    "border-emerald-400/20 bg-emerald-400/10 text-emerald-300",
-                  status: "Automation Platform",
-                  description:
-                    "Enterprise reporting and ETL automation workflows designed around SSRS, SSIS, SQL Server Agent and query optimisation techniques.",
-                  metrics: [
-                    "70% Manual Workload Reduction",
-                    "Scheduled Reports",
-                    "ETL Pipelines",
-                  ],
-                  modules: [
-                    {
-                      label: "ETL PIPELINE",
-                      value: "SSIS workflows for JSON, XML and CSV processing",
-                      icon: Workflow,
-                    },
-                    {
-                      label: "REPORTING ENGINE",
-                      value:
-                        "SSRS reports for financial and operational insights",
-                      icon: LineChart,
-                    },
-                    {
-                      label: "SQL CONTROL",
-                      value:
-                        "SQL Server Agent scheduling and T-SQL optimisation",
-                      icon: Database,
-                    },
-                  ],
-                  tech: [
-                    "SSRS",
-                    "SSIS",
-                    "SQL Server",
-                    "SQL Server Agent",
-                    "T-SQL",
-                    "ETL",
                   ],
                 },
               ].map((project, index) => {
@@ -2128,7 +2223,7 @@ const capabilityTags = [
               {[
                 {
                   label: "Core Research",
-                  value: "LLMs · NLP",
+                  value: "Deep Learning ·LLMs· NLP",
                   icon: Brain,
                   tone: "text-violet-300",
                   bg: "bg-violet-400/10",
@@ -2325,9 +2420,9 @@ const capabilityTags = [
                   <div className="space-y-4">
                     {[
                       {
-                        label: "AI / NLP Research",
+                        label: "AI / Deep Learning · LLM · NLP Research",
                         value:
-                          "LLMs, NLP, sentiment analysis, text classification, BERT, model comparison, evaluation.",
+                          "Deep Learning, LLMs, NLP, Predictive Analytics, text classification, model  evaluation.",
                         icon: Brain,
                         tone: "text-violet-300",
                         bg: "bg-violet-400/10",
@@ -2426,10 +2521,11 @@ const capabilityTags = [
                       “Global Bitcoin Sentiment and Volatility Modelling using
                       NLP and Machine Learning,”
                     </span>{" "}
-                    gave me practical research experience in large-scale text
+                    gave me practical research experience in large scale text
                     data processing, NLP methods, sentiment classification,
-                    machine learning comparison, BERT-based modelling, and
-                    time-series analysis.
+                    predictive analysis, forecasting models, machine learning
+                    model comparison, BERT based fine-tuning, and time series
+                    volatility analysis.
                   </p>
 
                   <div className="mt-6 flex flex-wrap gap-2">
@@ -2442,6 +2538,9 @@ const capabilityTags = [
                       "Gradient Boosting",
                       "Sentiment Analysis",
                       "Time-Series",
+                      "Predictive Modelling",
+                      "Model Comparison",
+                      "Model Finetuning",
                     ].map((item) => (
                       <span
                         key={item}
@@ -2481,17 +2580,18 @@ const capabilityTags = [
                   </div>
 
                   <p className="text-sm leading-7 text-slate-300 sm:text-base">
-                    My long-term goal is to contribute to research that makes AI
-                    systems more dependable in real-world settings — especially
-                    LLM-based applications used in education, healthcare,
-                    finance, cybersecurity, business automation, and
-                    decision-support systems.
+                    My research interests focus on AI safety, LLM security,
+                    prompt injection resilience, trustworthy NLP, safety layer
+                    architectures, AI system monitoring, and secure deployment
+                    of AI systems. I am particularly interested in making LLM
+                    based applications more reliable, transparent, and resistant
+                    to misuse in real world environments.
                   </p>
 
                   <div className="mt-6 grid gap-3 sm:grid-cols-2">
                     {[
-                      "Prompt-based attacks",
-                      "Jailbreaking resistance",
+                      "Prompt-Injection Resilience",
+                      "LLM Security",
                       "Safety-layer architectures",
                       "AI system monitoring",
                       "Trustworthy NLP",
@@ -2623,14 +2723,14 @@ const capabilityTags = [
                   iconWrap: "border-cyan-400/20 bg-cyan-400/10 text-cyan-300",
                   modules: [
                     "Machine Learning",
-                    "Natural Language Processing",
-                    "Data Modelling",
-                    "Research Methods",
+                    "Big Data Analytics",
+                    "Statistics for Data Science",
+                    "Data Engineering and Analytics",
                   ],
                   focus:
                     "Strengthened research thinking, technical literature evaluation, large-scale data processing, machine learning experimentation, and academic writing.",
                   project:
-                    "Dissertation: Global Bitcoin Sentiment & Volatility Modelling using NLP and Machine Learning.",
+                    "Strengthened my foundation in Data Science, Data Engineering, Analytics, AI, and Machine Learning through large-scale text data processing, NLP, predictive modelling, forecasting, and model comparison. Improved my statistical thinking, analytical mindset, and research confidence, opening the door to my continued journey in AI, Machine Learning, and Data Engineering.",
                 },
                 {
                   code: "EDU-01",
@@ -2835,6 +2935,7 @@ const capabilityTags = [
                   <div className="mt-6 flex flex-wrap gap-2">
                     {[
                       "LLMs",
+                      "Deep Learning",
                       "NLP",
                       "AI Safety",
                       "Trustworthy AI",
@@ -2862,6 +2963,7 @@ const capabilityTags = [
 >
   <div className="absolute inset-0 -z-20 bg-slate-950" />
   <div className="absolute inset-0 -z-10 grid-bg opacity-35" />
+
   <div className="absolute left-[-12rem] top-20 -z-10 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
   <div className="absolute bottom-10 right-[-12rem] -z-10 h-96 w-96 rounded-full bg-violet-500/10 blur-3xl" />
 
@@ -2869,203 +2971,241 @@ const capabilityTags = [
     <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-[1px] shadow-2xl shadow-slate-950/40">
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-blue-500/10 to-violet-500/20" />
 
-      <div className="relative rounded-[1.95rem] bg-slate-950/90 p-6 backdrop-blur-xl sm:p-8 lg:p-10">
-        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <div className="relative overflow-hidden rounded-[1.95rem] bg-slate-950/92 p-6 backdrop-blur-xl sm:p-8 lg:p-10">
+        <div className="absolute right-[-8rem] top-[-8rem] h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+        <div className="absolute bottom-[-8rem] left-[-8rem] h-72 w-72 rounded-full bg-violet-500/10 blur-3xl" />
+
+        <div className="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="mb-4 inline-flex rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-cyan-300">
+            <p className="mb-5 inline-flex rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.28em] text-cyan-300">
               Contact Gateway
             </p>
 
-            <h2 className="text-4xl font-black tracking-tight text-white md:text-5xl">
-              Let’s connect around{" "}
+            <h2 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
+              Open for{" "}
               <span className="text-gradient">
-                software, data & AI systems
+                software, data & AI opportunities
               </span>
             </h2>
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-              I am open to software engineering opportunities, AI research
-              collaborations, PhD discussions, technical projects, and
-              professional networking.
+              I am available for software engineering roles, data
+              engineering projects, AI and PhD research,
+              technical collaborations, and professional networking.
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {[
+                {
+                  title: "Software Engineering",
+                  text: "Full-stack roles, APIs, production systems, web platforms.",
+                  icon: Code2,
+                  tone: "text-cyan-300",
+                  bg: "bg-cyan-400/10",
+                  border: "border-cyan-400/20",
+                },
+                {
+                  title: "Data Engineering",
+                  text: "SQL, ETL, SSIS, SSRS, reporting automation, pipelines.",
+                  icon: Database,
+                  tone: "text-blue-300",
+                  bg: "bg-blue-400/10",
+                  border: "border-blue-400/20",
+                },
+                {
+                  title: "AI Research",
+                  text: "NLP, LLMs, Deep Learning, Machine Learning, PhD direction.",
+                  icon: Brain,
+                  tone: "text-violet-300",
+                  bg: "bg-violet-400/10",
+                  border: "border-violet-400/20",
+                },
+                {
+                  title: "Collaboration",
+                  text: "Technical discussions, research ideas, networking.",
+                  icon: MessageSquare,
+                  tone: "text-emerald-300",
+                  bg: "bg-emerald-400/10",
+                  border: "border-emerald-400/20",
+                },
+              ].map((item) => {
+                const Icon = item.icon
+
+                return (
+                  <div
+                    key={item.title}
+                    className={`rounded-3xl border ${item.border} bg-white/[0.025] p-4 backdrop-blur transition hover:-translate-y-1 hover:bg-white/[0.045]`}
+                  >
+                    <div
+                      className={`mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border ${item.border} ${item.bg} ${item.tone}`}
+                    >
+                      <Icon size={20} />
+                    </div>
+
+                    <h3 className="font-black text-white">{item.title}</h3>
+
+                    <p className="mt-2 text-sm leading-6 text-slate-400">
+                      {item.text}
+                    </p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-5 backdrop-blur-xl">
+              <div className="mb-5 flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.28em] text-cyan-300">
+                    Direct Channels
+                  </p>
+                  <h3 className="mt-2 text-2xl font-black text-white">
+                    Reach me quickly
+                  </h3>
+                </div>
+
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-300">
+                  <Globe2 size={22} />
+                </div>
+              </div>
+
+              <div className="grid gap-4">
+                {[
+                  {
+                    label: "Email Channel",
+                    value: "mraznyrazeek@gmail.com",
+                    href: "mailto:mraznyrazeek@gmail.com",
+                    icon: Mail,
+                    tone: "text-cyan-300",
+                    bg: "bg-cyan-400/10",
+                    border: "border-cyan-400/20",
+                  },
+                  {
+                    label: "Professional Network",
+                    value: "linkedin.com/in/raznyrazeek",
+                    href: "https://linkedin.com/in/raznyrazeek",
+                    icon: ExternalLink,
+                    tone: "text-blue-300",
+                    bg: "bg-blue-400/10",
+                    border: "border-blue-400/20",
+                  },
+                  {
+                    label: "Current Base",
+                    value: "Colchester, Essex, United Kingdom",
+                    href: null,
+                    icon: MapPin,
+                    tone: "text-violet-300",
+                    bg: "bg-violet-400/10",
+                    border: "border-violet-400/20",
+                  },
+                ].map((item) => {
+                  const Icon = item.icon
+
+                  const content = (
+                    <div
+                      className={`group rounded-3xl border ${item.border} bg-slate-950/70 p-4 transition hover:-translate-y-1 hover:bg-slate-900/80`}
+                    >
+                      <div className="flex items-center gap-4">
+                        <div
+                          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${item.border} ${item.bg} ${item.tone}`}
+                        >
+                          <Icon size={20} />
+                        </div>
+
+                        <div className="min-w-0 flex-1">
+                          <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-500">
+                            {item.label}
+                          </p>
+
+                          <p className="mt-1 break-words text-base font-bold text-white">
+                            {item.value}
+                          </p>
+                        </div>
+
+                        {item.href && (
+                          <ExternalLink
+                            size={17}
+                            className="shrink-0 text-slate-500 transition group-hover:text-cyan-300"
+                          />
+                        )}
+                      </div>
+                    </div>
+                  )
+
+                  return item.href ? (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    <div key={item.label}>{content}</div>
+                  )
+                })}
+              </div>
+            </div>
+
+            <div className="rounded-[1.75rem] border border-emerald-400/20 bg-emerald-400/[0.045] p-5 backdrop-blur-xl">
+              <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-emerald-400/20 bg-emerald-400/10 text-emerald-300">
+                    <Rocket size={20} />
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-300">
+                      Availability
+                    </p>
+
+                    <h3 className="mt-1 font-black text-white">
+                      Open to meaningful technical opportunities
+                    </h3>
+                  </div>
+                </div>
+
+                <a
+                  href="mailto:mraznyrazeek@gmail.com"
+                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-5 py-3 text-sm font-bold text-emerald-200 transition hover:bg-emerald-400 hover:text-slate-950"
+                >
+                  Start Conversation
+                  <ArrowRight size={16} />
+                </a>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
               <a
                 href="mailto:mraznyrazeek@gmail.com"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-bold text-slate-950 shadow-lg shadow-cyan-400/20 transition hover:bg-cyan-300 sm:w-auto"
+                className="group inline-flex min-h-[96px] flex-col items-center justify-center gap-3 rounded-3xl border border-cyan-400/20 bg-cyan-400/10 p-5 text-center font-bold text-cyan-100 shadow-[0_18px_45px_rgba(6,182,212,0.08)] backdrop-blur transition hover:-translate-y-1 hover:bg-cyan-400 hover:text-slate-950"
               >
-                <Send size={18} />
-                Email Me
-                <ArrowRight
-                  size={18}
-                  className="transition group-hover:translate-x-1"
-                />
+                <Send size={22} />
+                <span>Email Me</span>
               </a>
 
               <a
                 href="https://linkedin.com/in/raznyrazeek"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-bold text-white backdrop-blur transition hover:border-cyan-400 hover:text-cyan-300 sm:w-auto"
+                className="group inline-flex min-h-[96px] flex-col items-center justify-center gap-3 rounded-3xl border border-blue-400/20 bg-blue-400/10 p-5 text-center font-bold text-blue-100 shadow-[0_18px_45px_rgba(59,130,246,0.08)] backdrop-blur transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/10 hover:text-cyan-200"
               >
-                <ExternalLink size={18} />
-                LinkedIn
+                <ExternalLink size={22} />
+                <span>LinkedIn</span>
               </a>
 
               <a
                 href="/documents/Razny-Razeek-CV.pdf"
                 download
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-bold text-white backdrop-blur transition hover:border-cyan-400 hover:text-cyan-300 sm:w-auto"
+                className="group inline-flex min-h-[96px] flex-col items-center justify-center gap-3 rounded-3xl border border-violet-400/20 bg-violet-400/10 p-5 text-center font-bold text-violet-100 shadow-[0_18px_45px_rgba(139,92,246,0.08)] backdrop-blur transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/10 hover:text-cyan-200"
               >
-                <Download size={18} />
-                Download CV
+                <Download size={22} />
+                <span>Download CV</span>
               </a>
             </div>
           </div>
-
-          <div className="grid gap-4">
-            {[
-              {
-                label: "Email Channel",
-                value: "mraznyrazeek@gmail.com",
-                href: "mailto:mraznyrazeek@gmail.com",
-                icon: Mail,
-                tone: "text-cyan-300",
-                bg: "bg-cyan-400/10",
-                border: "border-cyan-400/20",
-              },
-              {
-                label: "Professional Network",
-                value: "linkedin.com/in/raznyrazeek",
-                href: "https://linkedin.com/in/raznyrazeek",
-                icon: ExternalLink,
-                tone: "text-blue-300",
-                bg: "bg-blue-400/10",
-                border: "border-blue-400/20",
-              },
-              {
-                label: "Current Base",
-                value: "Colchester, Essex, United Kingdom",
-                href: null,
-                icon: MapPin,
-                tone: "text-violet-300",
-                bg: "bg-violet-400/10",
-                border: "border-violet-400/20",
-              },
-            ].map((item) => {
-              const Icon = item.icon
-
-              const cardContent = (
-                <div
-                  className={`group relative overflow-hidden rounded-3xl border ${item.border} bg-white/[0.035] p-[1px] transition hover:-translate-y-1`}
-                >
-                  <div className="relative rounded-3xl bg-slate-950/80 p-5 backdrop-blur-xl">
-                    <div className="flex items-start gap-4">
-                      <div
-                        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${item.border} ${item.bg} ${item.tone}`}
-                      >
-                        <Icon size={20} />
-                      </div>
-
-                      <div className="min-w-0 flex-1">
-                        <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500">
-                          {item.label}
-                        </p>
-
-                        <p className="mt-2 break-words text-base font-bold text-white">
-                          {item.value}
-                        </p>
-                      </div>
-
-                      {item.href && (
-                        <ExternalLink
-                          size={18}
-                          className="shrink-0 text-slate-500 transition group-hover:text-cyan-300"
-                        />
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )
-
-              return item.href ? (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target={item.href.startsWith("http") ? "_blank" : undefined}
-                  rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                >
-                  {cardContent}
-                </a>
-              ) : (
-                <div key={item.label}>{cardContent}</div>
-              )
-            })}
-          </div>
-        </div>
-
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {[
-            {
-              title: "Software Engineering",
-              text: "Full-stack development, APIs, production systems, clean architecture, and cloud-supported applications.",
-              icon: Code2,
-            },
-            {
-              title: "AI Research Direction",
-              text: "LLMs, NLP, trustworthy AI, AI safety, AI security, and scalable AI software systems.",
-              icon: Brain,
-            },
-            {
-              title: "Collaboration Ready",
-              text: "Available for professional networking, technical discussions, PhD guidance, and research conversations.",
-              icon: MessageSquare,
-            },
-          ].map((item) => {
-            const Icon = item.icon
-
-            return (
-              <div
-                key={item.title}
-                className="rounded-3xl border border-white/10 bg-white/[0.025] p-5 backdrop-blur"
-              >
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-300">
-                  <Icon size={20} />
-                </div>
-
-                <h3 className="font-black text-white">{item.title}</h3>
-
-                <p className="mt-2 text-sm leading-6 text-slate-400">
-                  {item.text}
-                </p>
-              </div>
-            )
-          })}
-        </div>
-
-        <div className="mt-10 flex flex-col gap-4 rounded-3xl border border-white/10 bg-slate-900/60 p-5 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-400/20 bg-emerald-400/10 text-emerald-300">
-              <Rocket size={20} />
-            </div>
-
-            <div>
-              <p className="font-bold text-white">
-                Open to meaningful technical opportunities
-              </p>
-              <p className="mt-1 text-sm text-slate-400">
-                Software engineering · AI research · PhD conversations · technical collaboration
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="mailto:mraznyrazeek@gmail.com"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-5 py-3 text-sm font-bold text-emerald-200 transition hover:bg-emerald-400 hover:text-slate-950"
-          >
-            Start Conversation
-            <ArrowRight size={16} />
-          </a>
         </div>
       </div>
     </div>
