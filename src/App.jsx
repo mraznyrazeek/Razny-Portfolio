@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import profileImage from "./assets/profile.jpg";
+import profileImage from "./assets/profile.png";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
